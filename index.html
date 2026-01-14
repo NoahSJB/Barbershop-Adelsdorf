@@ -1,9 +1,13 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbershop Adelsdorf | Professionelle Herrenfriseur & Bartpflege</title>
     <meta name="description" content="Ihr professioneller Barbershop in Adelsdorf. Herrenhaarschnitt, Bartpflege und Styling vom Experten seit 2019.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +26,7 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Playfair Display', 'Georgia', serif;
             line-height: 1.6;
             color: var(--light-text);
             background-color: var(--dark-bg);
@@ -90,7 +94,8 @@
             padding: 6rem 2rem;
             text-align: center;
             border: 3px solid var(--border-gold);
-            margin: 2rem;
+            margin: 2rem auto;
+            max-width: calc(1200px + 4rem);
             position: relative;
         }
 
@@ -114,6 +119,34 @@
 
         .logo-container {
             margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Decorative Flourishes */
+        .flourish-left, .flourish-right {
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 40px;
+            opacity: 0.6;
+        }
+
+        .flourish-left {
+            left: calc(50% - 250px);
+            transform: translateY(-50%);
+        }
+
+        .flourish-right {
+            right: calc(50% - 250px);
+            transform: translateY(-50%) scaleX(-1);
+        }
+
+        .flourish-svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: var(--primary-gold);
+            stroke-width: 1.5;
         }
 
         .scissors-icon {
@@ -206,6 +239,15 @@
             letter-spacing: 4px;
             border-bottom: 2px solid var(--border-gold);
             padding-bottom: 1rem;
+            position: relative;
+        }
+
+        section h2::before,
+        section h2::after {
+            content: '◆';
+            color: var(--primary-gold);
+            margin: 0 1rem;
+            font-size: 0.8em;
         }
 
         /* Price List */
@@ -482,8 +524,13 @@
             }
 
             .hero {
-                margin: 1rem;
+                margin: 1rem auto;
                 padding: 3rem 1rem;
+                max-width: calc(100% - 2rem);
+            }
+
+            .flourish-left, .flourish-right {
+                display: none;
             }
 
             .hero h1 {
@@ -538,6 +585,20 @@
     <section class="hero">
         <div class="hero-content">
             <div class="logo-container">
+                <!-- Decorative Flourishes -->
+                <div class="flourish-left">
+                    <svg class="flourish-svg" viewBox="0 0 100 50">
+                        <path d="M 5,25 Q 20,10 35,25 T 65,25 Q 80,35 95,25" />
+                        <path d="M 10,25 Q 25,15 40,25 T 70,25 Q 85,32 90,25" />
+                    </svg>
+                </div>
+                <div class="flourish-right">
+                    <svg class="flourish-svg" viewBox="0 0 100 50">
+                        <path d="M 5,25 Q 20,10 35,25 T 65,25 Q 80,35 95,25" />
+                        <path d="M 10,25 Q 25,15 40,25 T 70,25 Q 85,32 90,25" />
+                    </svg>
+                </div>
+                
                 <div class="scissors-icon">✂</div>
                 <div class="est-text">EST. 2019</div>
                 <h1>BARBER SHOP</h1>
@@ -556,7 +617,7 @@
 
     <!-- Price List Section -->
     <section id="preisliste">
-        <h2>– PREISLISTE –</h2>
+        <h2>PREISLISTE</h2>
         
         <div class="price-list">
             <h3>UNSERE LEISTUNGEN</h3>
@@ -693,6 +754,7 @@
                 </div>
             </div>
         </div>
+    </section>
 
     <!-- Footer -->
     <footer>
