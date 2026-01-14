@@ -1,3 +1,12 @@
+<!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2575.8!2d10.9!3d49.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDQyJzAwLjAiTiAxMMKwNTQnMDAuMCJF!5e0!3m2!1sde!2sde!4v1234567890!5m2!1sde!2sde"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div><!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -28,6 +37,7 @@
             background-color: var(--dark-bg);
         }
 
+        /* Navigation */
         nav {
             background-color: var(--darker-bg);
             padding: 1rem 2rem;
@@ -81,6 +91,7 @@
             cursor: pointer;
         }
 
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230a0a0a"/></svg>');
             background-size: cover;
@@ -174,6 +185,7 @@
             color: var(--darker-bg);
         }
 
+        /* Google Reviews Badge */
         .reviews-badge {
             background-color: transparent;
             padding: 1.5rem;
@@ -188,6 +200,7 @@
             letter-spacing: 2px;
         }
 
+        /* Content Sections */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -204,6 +217,7 @@
             padding-bottom: 1rem;
         }
 
+        /* Price List */
         .price-list {
             max-width: 800px;
             margin: 3rem auto;
@@ -273,7 +287,8 @@
             margin: 1rem 0;
             border-left: 3px solid var(--primary-gold);
         }
-      
+
+        /* Contact & Hours */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -354,6 +369,7 @@
             border: none;
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -416,6 +432,7 @@
             color: var(--light-text);
         }
 
+        /* Footer */
         footer {
             background-color: var(--darker-bg);
             padding: 3rem 2rem;
@@ -450,6 +467,7 @@
             color: var(--primary-gold);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -512,6 +530,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">BARBERSHOP ADELSDORF</a>
@@ -524,6 +543,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="logo-container">
@@ -535,6 +555,7 @@
             </div>
             <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
             
+            <!-- Google Reviews Badge -->
             <div class="reviews-badge">
                 <h3>AUSGEZEICHNET</h3>
                 <p style="color: var(--gray-text);">Basierend auf Google Bewertungen</p>
@@ -542,6 +563,7 @@
         </div>
     </section>
 
+    <!-- Price List Section -->
     <section id="preisliste">
         <h2>– PREISLISTE –</h2>
         
@@ -645,6 +667,7 @@
         </div>
     </section>
 
+    <!-- Contact & Hours Section -->
     <section id="kontakt">
         <h2>KONTAKT & STANDORT</h2>
         
@@ -680,6 +703,18 @@
             </div>
         </div>
 
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2575.8!2d10.9!3d49.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDQyJzAwLjAiTiAxMMKwNTQnMDAuMCJF!5e0!3m2!1sde!2sde!4v1234567890!5m2!1sde!2sde"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <h3>BARBERSHOP ADELSDORF</h3>
         <p>Ihr professioneller Barbershop seit 2019</p>
@@ -691,6 +726,7 @@
         <p style="margin-top: 2rem;">© 2026 Barbershop Adelsdorf – Alle Rechte vorbehalten</p>
     </footer>
 
+    <!-- Modal für Impressum und Datenschutz -->
     <div id="impressumModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('impressum')">&times;</span>
@@ -723,12 +759,14 @@
             modal.style.display = 'none';
         }
 
+        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
 
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -738,6 +776,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
                     document.getElementById('navLinks').classList.remove('active');
                 }
             });
