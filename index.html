@@ -458,7 +458,9 @@
             font-weight: bold;
             cursor: pointer;
             position: relative;
-            z-index: 1;
+            z-index: 10;
+            line-height: 1;
+            padding: 0.2rem 0.5rem;
         }
 
         .close:hover {
@@ -766,7 +768,9 @@
             }
 
             .close {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                padding: 0.3rem 0.6rem;
+                margin-top: -0.5rem;
             }
         }
     </style>
@@ -997,26 +1001,38 @@
 
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
-            modal.style.display = 'block';
+            if (modal) {
+                modal.style.display = 'block';
+                // Prevent body scroll when modal is open
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal(type) {
             const modal = document.getElementById(type + 'Modal');
-            modal.style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
+            if (modal) {
+                modal.style.display = 'none';
+                // Re-enable body scroll
+                document.body.style.overflow = 'auto';
             }
         }
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return; // Skip empty hash links
+                
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
