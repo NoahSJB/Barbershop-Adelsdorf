@@ -28,6 +28,7 @@
             background-color: var(--dark-bg);
         }
 
+        /* Navigation */
         nav {
             background-color: var(--darker-bg);
             padding: 1rem 2rem;
@@ -81,14 +82,16 @@
             cursor: pointer;
         }
 
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230a0a0a"/></svg>');
             background-size: cover;
             background-position: center;
-            padding: 6rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             border: 3px solid var(--border-gold);
-            margin: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
             position: relative;
         }
 
@@ -174,6 +177,7 @@
             color: var(--darker-bg);
         }
 
+        /* Google Reviews Badge */
         .reviews-badge {
             background-color: transparent;
             padding: 1.5rem 0;
@@ -186,11 +190,12 @@
             width: 100%;
             max-width: 450px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
-            border: 2px solid var(--border-gold);
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
         }
 
+        /* Map Button */
         .map-button {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -233,6 +238,7 @@
             padding-bottom: 1rem;
         }
 
+        /* Price List */
         .price-list {
             max-width: 800px;
             margin: 3rem auto;
@@ -303,6 +309,7 @@
             border-left: 3px solid var(--primary-gold);
         }
 
+        /* Contact & Hours */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -371,6 +378,7 @@
             text-align: right;
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -433,6 +441,7 @@
             color: var(--light-text);
         }
 
+        /* Footer */
         footer {
             background-color: var(--darker-bg);
             padding: 3rem 2rem;
@@ -467,6 +476,7 @@
             color: var(--primary-gold);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -490,8 +500,9 @@
             }
 
             .hero {
-                margin: 1rem;
-                padding: 3rem 1rem;
+                margin: 1rem auto;
+                padding: 2.5rem 1rem;
+                max-width: calc(100% - 2rem);
             }
 
             .hero h1 {
@@ -517,7 +528,7 @@
 
             .reviews-badge img {
                 max-width: 100%;
-                border-radius: 6px;
+                border-radius: 0;
             }
 
             .map-button {
@@ -555,6 +566,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">BARBERSHOP ADELSDORF</a>
@@ -563,10 +575,12 @@
                 <li><a href="#preisliste">PREISLISTE</a></li>
                 <li><a href="#kontakt">KONTAKT</a></li>
                 <li><a href="#oeffnungszeiten">ÖFFNUNGSZEITEN</a></li>
+                <li><a href="https://maps.google.com/?q=Marktplatz+1,+91325+Adelsdorf" target="_blank" class="map-button">GOOGLE MAPS</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="logo-container">
@@ -578,16 +592,14 @@
             </div>
             <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
             
-            <div class="map-button-container">
-                <a href="https://maps.google.com/?q=Marktplatz+1,+91325+Adelsdorf" target="_blank" class="map-button">📍 AUF GOOGLE MAPS ANZEIGEN</a>
-            </div>
-            
+            <!-- Google Reviews Badge -->
             <div class="reviews-badge">
                 <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" loading="lazy">
             </div>
         </div>
     </section>
 
+    <!-- Price List Section -->
     <section id="preisliste">
         <h2>— PREISLISTE —</h2>
         
@@ -691,6 +703,7 @@
         </div>
     </section>
 
+    <!-- Contact & Hours Section -->
     <section id="kontakt">
         <h2>KONTAKT & STANDORT</h2>
         
@@ -726,11 +739,13 @@
             </div>
         </div>
 
+        <!-- Google Maps Button -->
         <div class="map-button-container">
             <a href="https://maps.google.com/?q=Marktplatz+1,+91325+Adelsdorf" target="_blank" class="map-button">📍 ROUTENPLANUNG MIT GOOGLE MAPS</a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <h3>BARBERSHOP ADELSDORF</h3>
         <p>Ihr professioneller Barbershop seit 2019</p>
@@ -742,6 +757,7 @@
         <p style="margin-top: 2rem;">© 2026 Barbershop Adelsdorf — Alle Rechte vorbehalten</p>
     </footer>
 
+    <!-- Modal für Impressum und Datenschutz -->
     <div id="impressumModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('impressum')">&times;</span>
@@ -774,12 +790,14 @@
             modal.style.display = 'none';
         }
 
+        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
 
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -789,6 +807,7 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
                     document.getElementById('navLinks').classList.remove('active');
                 }
             });
