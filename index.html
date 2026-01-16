@@ -238,7 +238,6 @@
             padding-bottom: 1rem;
         }
 
-        /* Price List */
         .price-list {
             max-width: 800px;
             margin: 3rem auto;
@@ -275,6 +274,14 @@
             padding: 1rem 0;
             border-bottom: 1px dotted var(--border-gold);
             align-items: flex-start;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .price-item.animate {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .price-item:last-child {
@@ -439,7 +446,6 @@
             color: var(--light-text);
         }
 
-        /* Footer */
         footer {
             background-color: var(--darker-bg);
             padding: 3rem 2rem;
@@ -496,68 +502,206 @@
                 display: block;
             }
 
-            .hero {
-                margin: 1rem auto;
-                padding: 2.5rem 1rem;
-                max-width: calc(100% - 2rem);
+            nav {
+                padding: 0.8rem 1rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-
-            .hero .subtitle {
-                font-size: 1.3rem;
-                letter-spacing: 3px;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .reviews-badge {
-                padding: 1rem 0;
-                margin: 1.5rem auto 0;
-                max-width: 90%;
-            }
-
-            .reviews-badge img {
-                max-width: 100%;
-                border-radius: 0;
-            }
-
-            .map-button {
-                padding: 0.8rem 1.5rem;
+            .logo {
                 font-size: 0.9rem;
                 letter-spacing: 1px;
             }
 
+            .hero {
+                margin: 0.8rem;
+                padding: 1.5rem 0.8rem;
+                border-width: 2px;
+            }
+
+            .hero::before {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+            }
+
+            .scissors-icon {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .est-text {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+                margin-bottom: 0.3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+                margin-bottom: 0.3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+                letter-spacing: 2px;
+                margin-bottom: 0.5rem;
+            }
+
+            .stars {
+                font-size: 0.9rem;
+                margin: 0.5rem 0 1rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+
+            .reviews-badge {
+                padding: 0.8rem 0;
+                margin: 1rem auto 0;
+                max-width: 100%;
+            }
+
+            .reviews-badge img {
+                max-width: 100%;
+            }
+
+            .map-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.75rem;
+                letter-spacing: 1px;
+            }
+
             section {
-                padding: 3rem 1rem;
+                padding: 2rem 0.8rem;
             }
 
             section h2 {
-                font-size: 1.8rem;
+                font-size: 1.3rem;
                 letter-spacing: 2px;
+                margin-bottom: 1.5rem;
             }
 
             .price-list {
-                padding: 1.5rem;
+                padding: 1.2rem 0.8rem;
+                border-width: 2px;
+            }
+
+            .price-list::before {
+                top: 6px;
+                left: 6px;
+                right: 6px;
+                bottom: 6px;
+            }
+
+            .price-list h3 {
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+                margin-bottom: 1.2rem;
             }
 
             .price-item {
                 flex-direction: column;
+                padding: 0.8rem 0;
+            }
+
+            .price-name {
+                font-size: 0.95rem;
+            }
+
+            .price-description {
+                font-size: 0.75rem;
             }
 
             .price-value {
                 margin-left: 0;
-                margin-top: 0.5rem;
+                margin-top: 0.4rem;
+                font-size: 1.1rem;
+            }
+
+            .special-package {
+                padding: 0.8rem;
+                margin: 0.8rem 0;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 1.2rem 0.8rem;
+                border-width: 2px;
+            }
+
+            .contact-card::before {
+                top: 6px;
+                left: 6px;
+                right: 6px;
+                bottom: 6px;
+            }
+
+            .contact-card h3 {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+
+            .contact-info {
+                font-size: 0.9rem;
+            }
+
+            .contact-info p {
+                padding: 0.3rem 0;
+            }
+
+            .hours-table td {
+                padding: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            footer h3 {
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+
+            .footer-links {
+                margin: 1rem 0;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+                font-size: 0.85rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem 1rem;
+                border-width: 2px;
+            }
+
+            .modal-content::before {
+                top: 6px;
+                left: 6px;
+                right: 6px;
+                bottom: 6px;
+            }
+
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .modal-content p {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -587,7 +731,6 @@
             </div>
             <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
             
-            <!-- Google Reviews Badge -->
             <div class="reviews-badge">
                 <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" loading="lazy">
             </div>
@@ -798,6 +941,21 @@
                     document.getElementById('navLinks').classList.remove('active');
                 }
             });
+        });
+
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 100);
+                    priceObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.price-item').forEach((item) => {
+            priceObserver.observe(item);
         });
     </script>
 </body>
