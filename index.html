@@ -737,6 +737,308 @@
         </div>
     </section>
 
+    <!-- ====== REVIEW SLIDER (einfach zwischen Bereich 1 und Bereich 2 einfügen) ====== -->
+<section class="review-carousel-section" aria-label="Bewertungen">
+  <div class="review-carousel" id="reviewCarousel">
+    <button class="rc-btn rc-prev" type="button" aria-label="Vorheriges Bild">
+      &#10094;
+    </button>
+
+    <div class="rc-viewport" id="rcViewport">
+      <div class="rc-track" id="rcTrack">
+        <div class="rc-slide"><img src="/images/bewertung_1.png" alt="Bewertung 1"></div>
+        <div class="rc-slide"><img src="/images/bewertung_2.png" alt="Bewertung 2"></div>
+        <div class="rc-slide"><img src="/images/bewertung_3.png" alt="Bewertung 3"></div>
+        <div class="rc-slide"><img src="/images/bewertung_4.png" alt="Bewertung 4"></div>
+        <div class="rc-slide"><img src="/images/bewergung_5.png" alt="Bewertung 5"></div>
+      </div>
+    </div>
+
+    <button class="rc-btn rc-next" type="button" aria-label="Nächstes Bild">
+      &#10095;
+    </button>
+  </div>
+
+  <div class="rc-dots" id="rcDots" aria-label="Slider Navigation"></div>
+</section>
+
+<style>
+  /* ====== Review Carousel Styles ====== */
+  .review-carousel-section{
+    margin: 2.5rem auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-carousel{
+    position: relative;
+    width: min(980px, calc(100% - 2rem));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rc-viewport{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .rc-track{
+    display: flex;
+    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+    touch-action: pan-y;
+  }
+
+  .rc-slide{
+    flex: 0 0 100%;
+    padding: 0.75rem;
+  }
+
+  .rc-slide img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .rc-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(15,23,42,.9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .rc-btn:hover{
+    background: rgba(15,23,42,1);
+    transform: translateY(-50%) scale(1.06);
+  }
+  .rc-prev{ left: -10px; }
+  .rc-next{ right: -10px; }
+
+  .rc-dots{
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .rc-dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255,255,255,.45);
+    cursor: pointer;
+    transition: width .2s ease, background .2s ease;
+  }
+
+  .rc-dot.is-active{
+    width: 26px;
+    background: rgba(255,255,255,.9);
+  }
+
+  /* Desktop: mehrere Bilder sichtbar */
+  @media (min-width: 900px){
+    .rc-slide{ flex: 0 0 33.333%; } /* 3 Bilder */
+  }
+
+  /* Tablet: 2 Bilder */
+  @media (min-width: 640px) and (max-width: 899px){
+    .rc-slide{ flex: 0 0 50%; } /* 2 Bilder */
+  }
+
+  /* Mobile: Pfeile kleiner */
+  @media (max-width: 639px){
+    .rc-btn{
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<script>
+  (function(){
+    const track = document.getElementById('rcTrack');
+    const viewport = document.getElementById('rcViewport');
+    const prevBtn = document.querySelector('.rc-prev');
+    const nextBtn = document.querySelector('.rc-next');
+    const dotsWrap = document.getElementById('rcDots');
+
+    const slides = Array.from(track.querySelectorAll('.rc-slide'));
+    const total = slides.length;
+
+    // --- State ---
+    let perView = 1;          // 1 mobile, 2 tablet, 3 desktop
+    let index = 0;            // group index
+    let maxIndex = 0;
+    let autoTimer = null;
+
+    // Swipe
+    let isPointerDown = false;
+    let startX = 0;
+    let currentX = 0;
+    let moved = false;
+
+    function calcPerView(){
+      const w = window.innerWidth;
+      if (w >= 900) return 3;
+      if (w >= 640) return 2;
+      return 1;
+    }
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    function buildDots(){
+      dotsWrap.innerHTML = '';
+      const groups = Math.ceil(total / perView);
+      for (let i = 0; i < groups; i++){
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rc-dot' + (i === index ? ' is-active' : '');
+        b.setAttribute('aria-label', 'Gehe zu Slide ' + (i + 1));
+        b.addEventListener('click', () => goTo(i, true));
+        dotsWrap.appendChild(b);
+      }
+    }
+
+    function updateMaxIndex(){
+      maxIndex = Math.max(0, Math.ceil(total / perView) - 1);
+      index = clamp(index, 0, maxIndex);
+    }
+
+    function slideWidth(){
+      // width of one slide incl padding (since padding is inside slide)
+      return slides[0].getBoundingClientRect().width;
+    }
+
+    function updateTransform(){
+      const offset = index * perView * slideWidth();
+      track.style.transform = `translateX(${-offset}px)`;
+
+      // dots
+      const dots = Array.from(dotsWrap.querySelectorAll('.rc-dot'));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+    }
+
+    function goTo(i, userInitiated=false){
+      index = clamp(i, 0, maxIndex);
+      updateTransform();
+      if (userInitiated) restartAuto();
+    }
+
+    function next(){
+      if (index >= maxIndex) index = 0;
+      else index++;
+      updateTransform();
+    }
+
+    function prev(){
+      if (index <= 0) index = maxIndex;
+      else index--;
+      updateTransform();
+    }
+
+    function startAuto(){
+      stopAuto();
+      autoTimer = setInterval(next, 5000); // autoslide alle 5 Sekunden
+    }
+
+    function stopAuto(){
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
+    }
+
+    function restartAuto(){
+      startAuto();
+    }
+
+    // --- Events ---
+    prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
+    nextBtn.addEventListener('click', () => { next(); restartAuto(); });
+
+    // Pause on hover (desktop)
+    viewport.addEventListener('mouseenter', stopAuto);
+    viewport.addEventListener('mouseleave', startAuto);
+
+    // Touch/Pointer swipe
+    viewport.addEventListener('pointerdown', (e) => {
+      isPointerDown = true;
+      startX = e.clientX;
+      currentX = startX;
+      moved = false;
+      stopAuto();
+      viewport.setPointerCapture(e.pointerId);
+    });
+
+    viewport.addEventListener('pointermove', (e) => {
+      if (!isPointerDown) return;
+      currentX = e.clientX;
+      const dx = currentX - startX;
+      if (Math.abs(dx) > 6) moved = true;
+      // Optional: could implement drag-follow; keep simple and stable.
+    });
+
+    viewport.addEventListener('pointerup', (e) => {
+      if (!isPointerDown) return;
+      isPointerDown = false;
+      const dx = currentX - startX;
+      const threshold = Math.max(40, viewport.clientWidth * 0.08);
+
+      if (moved && dx > threshold) prev();
+      else if (moved && dx < -threshold) next();
+
+      restartAuto();
+      try { viewport.releasePointerCapture(e.pointerId); } catch(_) {}
+    });
+
+    viewport.addEventListener('pointercancel', () => {
+      isPointerDown = false;
+      restartAuto();
+    });
+
+    // Recalc on resize
+    function refresh(){
+      perView = calcPerView();
+      updateMaxIndex();
+      buildDots();
+      // Ensure transform after layout settles
+      requestAnimationFrame(updateTransform);
+    }
+
+    window.addEventListener('resize', () => {
+      // debounce-ish
+      clearTimeout(window.__rcResizeT);
+      window.__rcResizeT = setTimeout(refresh, 120);
+    });
+
+    // Init
+    refresh();
+    startAuto();
+  })();
+</script>
+
+
     <section id="preisliste">
         <h2>— PREISLISTE —</h2>
         
