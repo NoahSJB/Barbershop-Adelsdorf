@@ -1,13 +1,9 @@
-<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbershop Adelsdorf | Professionelle Herrenfriseur & Bartpflege</title>
     <meta name="description" content="Ihr professioneller Barbershop in Adelsdorf. Herrenhaarschnitt, Bartpflege und Styling vom Experten seit 2019.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -26,13 +22,12 @@
         }
 
         body {
-            font-family: 'Playfair Display', 'Georgia', serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             line-height: 1.6;
             color: var(--light-text);
             background-color: var(--dark-bg);
         }
 
-        /* Navigation */
         nav {
             background-color: var(--darker-bg);
             padding: 1rem 2rem;
@@ -86,7 +81,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230a0a0a"/></svg>');
             background-size: cover;
@@ -94,8 +88,7 @@
             padding: 6rem 2rem;
             text-align: center;
             border: 3px solid var(--border-gold);
-            margin: 2rem auto;
-            max-width: calc(1200px + 4rem);
+            margin: 2rem;
             position: relative;
         }
 
@@ -119,34 +112,6 @@
 
         .logo-container {
             margin-bottom: 2rem;
-            position: relative;
-        }
-
-        /* Decorative Flourishes */
-        .flourish-left, .flourish-right {
-            position: absolute;
-            top: 50%;
-            width: 80px;
-            height: 40px;
-            opacity: 0.6;
-        }
-
-        .flourish-left {
-            left: calc(50% - 250px);
-            transform: translateY(-50%);
-        }
-
-        .flourish-right {
-            right: calc(50% - 250px);
-            transform: translateY(-50%) scaleX(-1);
-        }
-
-        .flourish-svg {
-            width: 100%;
-            height: 100%;
-            fill: none;
-            stroke: var(--primary-gold);
-            stroke-width: 1.5;
         }
 
         .scissors-icon {
@@ -209,19 +174,46 @@
             color: var(--darker-bg);
         }
 
-        /* Google Reviews Badge */
         .reviews-badge {
             background-color: transparent;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 300px;
+            padding: 1.5rem 0;
+            margin: 2rem auto 0;
+            max-width: 500px;
             text-align: center;
         }
 
-        .reviews-badge h3 {
+        .reviews-badge img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
+            border: 2px solid var(--border-gold);
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: transparent;
             color: var(--primary-gold);
-            margin-bottom: 0.5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 2px solid var(--primary-gold);
             letter-spacing: 2px;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+
+        .map-button:hover {
+            background-color: var(--primary-gold);
+            color: var(--darker-bg);
+        }
+
+        .map-button-container {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Content Sections */
@@ -239,18 +231,8 @@
             letter-spacing: 4px;
             border-bottom: 2px solid var(--border-gold);
             padding-bottom: 1rem;
-            position: relative;
         }
 
-        section h2::before,
-        section h2::after {
-            content: '◆';
-            color: var(--primary-gold);
-            margin: 0 1rem;
-            font-size: 0.8em;
-        }
-
-        /* Price List */
         .price-list {
             max-width: 800px;
             margin: 3rem auto;
@@ -321,7 +303,6 @@
             border-left: 3px solid var(--primary-gold);
         }
 
-        /* Contact & Hours */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -390,19 +371,6 @@
             text-align: right;
         }
 
-        .map-container {
-            margin-top: 2rem;
-            overflow: hidden;
-            border: 3px solid var(--border-gold);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-        }
-
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -458,16 +426,13 @@
             font-weight: bold;
             cursor: pointer;
             position: relative;
-            z-index: 10;
-            line-height: 1;
-            padding: 0.2rem 0.5rem;
+            z-index: 1;
         }
 
         .close:hover {
             color: var(--light-text);
         }
 
-        /* Footer */
         footer {
             background-color: var(--darker-bg);
             padding: 3rem 2rem;
@@ -502,18 +467,7 @@
             color: var(--primary-gold);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            /* Navigation */
-            nav {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo {
-                font-size: 1rem;
-                letter-spacing: 1px;
-            }
-
             .nav-links {
                 display: none;
                 position: absolute;
@@ -535,248 +489,72 @@
                 display: block;
             }
 
-            /* Hero Section */
             .hero {
                 margin: 1rem;
-                padding: 2.5rem 1.2rem;
-                max-width: calc(100% - 2rem);
-                border-width: 2px;
-            }
-
-            .hero::before {
-                top: 8px;
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-            }
-
-            .flourish-left, .flourish-right {
-                display: none;
-            }
-
-            .scissors-icon {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .est-text {
-                font-size: 0.75rem;
-                letter-spacing: 2px;
-                margin-bottom: 0.3rem;
+                padding: 3rem 1rem;
             }
 
             .hero h1 {
-                font-size: 1.8rem;
-                letter-spacing: 3px;
-                margin-bottom: 0.3rem;
+                font-size: 2.5rem;
+                letter-spacing: 4px;
             }
 
             .hero .subtitle {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-                margin-bottom: 0.5rem;
-            }
-
-            .stars {
-                font-size: 1rem;
-                margin: 0.8rem 0 1.5rem;
+                font-size: 1.3rem;
+                letter-spacing: 3px;
             }
 
             .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .reviews-badge {
+                padding: 1rem 0;
+                margin: 1.5rem auto 0;
+                max-width: 90%;
+            }
+
+            .reviews-badge img {
+                max-width: 100%;
+                border-radius: 6px;
+            }
+
+            .map-button {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
                 letter-spacing: 1px;
             }
 
-            .reviews-badge {
-                padding: 1rem;
-                margin: 1.5rem auto 0;
-            }
-
-            .reviews-badge h3 {
-                font-size: 0.9rem;
-                letter-spacing: 1px;
-            }
-
-            .reviews-badge p {
-                font-size: 0.8rem;
-            }
-
-            /* Sections */
             section {
-                padding: 2.5rem 1rem;
+                padding: 3rem 1rem;
             }
 
             section h2 {
-                font-size: 1.4rem;
+                font-size: 1.8rem;
                 letter-spacing: 2px;
-                padding-bottom: 0.8rem;
-                margin-bottom: 1.5rem;
             }
 
-            section h2::before,
-            section h2::after {
-                margin: 0 0.5rem;
-                font-size: 0.7em;
-            }
-
-            /* Price List */
             .price-list {
-                padding: 1.5rem 1rem;
-                border-width: 2px;
-                margin: 2rem auto;
-            }
-
-            .price-list::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .price-list h3 {
-                font-size: 1.3rem;
-                letter-spacing: 2px;
-                margin-bottom: 1.5rem;
-                padding-bottom: 0.8rem;
+                padding: 1.5rem;
             }
 
             .price-item {
                 flex-direction: column;
-                padding: 0.8rem 0;
-                gap: 0.3rem;
-            }
-
-            .price-name {
-                font-size: 0.95rem;
-            }
-
-            .price-description {
-                font-size: 0.75rem;
-                margin-top: 0.2rem;
             }
 
             .price-value {
                 margin-left: 0;
-                margin-top: 0.3rem;
-                font-size: 1.1rem;
-                align-self: flex-start;
+                margin-top: 0.5rem;
             }
 
-            .special-package {
-                padding: 0.8rem;
-                margin: 0.8rem 0;
-                border-left-width: 2px;
-            }
-
-            /* Contact Section */
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .contact-card {
-                padding: 1.5rem 1rem;
-                border-width: 2px;
-            }
-
-            .contact-card::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .contact-card h3 {
-                font-size: 1.1rem;
-                letter-spacing: 1.5px;
-                margin-bottom: 1rem;
-            }
-
-            .contact-info p {
-                padding: 0.4rem 0;
-                font-size: 0.9rem;
-            }
-
-            .hours-table td {
-                padding: 0.6rem 0;
-                font-size: 0.9rem;
-            }
-
-            .map-container {
-                border-width: 2px;
-                margin-top: 1.5rem;
-            }
-
-            .map-container iframe {
-                height: 300px;
-            }
-
-            /* Footer */
-            footer {
-                padding: 2rem 1rem;
-                border-top-width: 2px;
-            }
-
-            footer h3 {
-                font-size: 1.2rem;
-                letter-spacing: 2px;
-                margin-bottom: 0.8rem;
-            }
-
-            footer p {
-                font-size: 0.85rem;
-            }
-
-            .footer-links {
-                margin: 1.2rem 0;
-                display: flex;
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .footer-links a {
-                margin: 0;
-                font-size: 0.9rem;
-            }
-
-            /* Modal */
-            .modal-content {
-                margin: 20% auto;
-                padding: 2rem 1.5rem;
-                width: 90%;
-                border-width: 2px;
-            }
-
-            .modal-content::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .modal-content h2 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-                padding-bottom: 0.8rem;
-            }
-
-            .modal-content p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .close {
-                font-size: 1.8rem;
-                padding: 0.3rem 0.6rem;
-                margin-top: -0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">BARBERSHOP ADELSDORF</a>
@@ -789,24 +567,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="logo-container">
-                <!-- Decorative Flourishes -->
-                <div class="flourish-left">
-                    <svg class="flourish-svg" viewBox="0 0 100 50">
-                        <path d="M 5,25 Q 20,10 35,25 T 65,25 Q 80,35 95,25" />
-                        <path d="M 10,25 Q 25,15 40,25 T 70,25 Q 85,32 90,25" />
-                    </svg>
-                </div>
-                <div class="flourish-right">
-                    <svg class="flourish-svg" viewBox="0 0 100 50">
-                        <path d="M 5,25 Q 20,10 35,25 T 65,25 Q 80,35 95,25" />
-                        <path d="M 10,25 Q 25,15 40,25 T 70,25 Q 85,32 90,25" />
-                    </svg>
-                </div>
-                
                 <div class="scissors-icon">✂</div>
                 <div class="est-text">EST. 2019</div>
                 <h1>BARBER SHOP</h1>
@@ -815,16 +578,18 @@
             </div>
             <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
             
-            <!-- Google Reviews Badge -->
+            <div class="map-button-container">
+                <a href="https://maps.google.com/?q=Marktplatz+1,+91325+Adelsdorf" target="_blank" class="map-button">📍 AUF GOOGLE MAPS ANZEIGEN</a>
+            </div>
+            
             <div class="reviews-badge">
-                <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen" loading="lazy">
+                <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Price List Section -->
     <section id="preisliste">
-        <h2>PREISLISTE</h2>
+        <h2>— PREISLISTE —</h2>
         
         <div class="price-list">
             <h3>UNSERE LEISTUNGEN</h3>
@@ -833,14 +598,14 @@
                 <div>
                     <div class="price-name">Schneiden & Stylen</div>
                 </div>
-                <div class="price-value">21,–</div>
+                <div class="price-value">21,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Waschen, Schneiden & Stylen</div>
                 </div>
-                <div class="price-value">23,–</div>
+                <div class="price-value">23,—</div>
             </div>
 
             <div class="price-item">
@@ -848,28 +613,28 @@
                     <div class="price-name">Bart</div>
                     <div class="price-description">trimmen, konturieren und stylen</div>
                 </div>
-                <div class="price-value">18,–</div>
+                <div class="price-value">18,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Nassrasur</div>
                 </div>
-                <div class="price-value">18,–</div>
+                <div class="price-value">18,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Maschinenschnitt</div>
                 </div>
-                <div class="price-value">17,–</div>
+                <div class="price-value">17,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Kinder bis 13 Jahre</div>
                 </div>
-                <div class="price-value">17,–</div>
+                <div class="price-value">17,—</div>
             </div>
 
             <div class="price-item">
@@ -877,14 +642,14 @@
                     <div class="price-name">Dauerwelle</div>
                     <div class="price-description">mit Haarschnitt, stylen und Pflege</div>
                 </div>
-                <div class="price-value">67,–</div>
+                <div class="price-value">67,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Färben</div>
                 </div>
-                <div class="price-value">ab 35,–</div>
+                <div class="price-value">ab 35,—</div>
             </div>
 
             <div class="price-item special-package">
@@ -892,7 +657,7 @@
                     <div class="price-name">Glanz-Paket</div>
                     <div class="price-description">Haarschnitt, stylen und Bart trimmen/konturieren</div>
                 </div>
-                <div class="price-value">33,–</div>
+                <div class="price-value">33,—</div>
             </div>
 
             <div class="price-item special-package">
@@ -900,33 +665,32 @@
                     <div class="price-name">Deluxe-Paket Komplett</div>
                     <div class="price-description">Haarschnitt & Styling, Bart (Nassrasur oder trimmen und konturieren), Augenbrauen mit Faden zupfen, Ohr- & Nasenhaar-Waxing</div>
                 </div>
-                <div class="price-value">46,–</div>
+                <div class="price-value">46,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Augenbrauen zupfen</div>
                 </div>
-                <div class="price-value">9,–</div>
+                <div class="price-value">9,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Ohr- oder Nasenhaar-Waxing</div>
                 </div>
-                <div class="price-value">3,–</div>
+                <div class="price-value">3,—</div>
             </div>
 
             <div class="price-item">
                 <div>
                     <div class="price-name">Hair Design</div>
                 </div>
-                <div class="price-value">3,–</div>
+                <div class="price-value">3,—</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Hours Section -->
     <section id="kontakt">
         <h2>KONTAKT & STANDORT</h2>
         
@@ -935,12 +699,12 @@
                 <h3>ÖFFNUNGSZEITEN</h3>
                 <table class="hours-table">
                     <tr>
-                        <td>Montag – Freitag</td>
-                        <td>10:00 – 19:00</td>
+                        <td>Montag — Freitag</td>
+                        <td>10:00 — 19:00</td>
                     </tr>
                     <tr>
                         <td>Samstag</td>
-                        <td>09:00 – 16:00</td>
+                        <td>09:00 — 16:00</td>
                     </tr>
                     <tr>
                         <td>Sonntag</td>
@@ -961,9 +725,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="map-button-container">
+            <a href="https://maps.google.com/?q=Marktplatz+1,+91325+Adelsdorf" target="_blank" class="map-button">📍 ROUTENPLANUNG MIT GOOGLE MAPS</a>
+        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <h3>BARBERSHOP ADELSDORF</h3>
         <p>Ihr professioneller Barbershop seit 2019</p>
@@ -972,10 +739,9 @@
             <a href="#" onclick="openModal('impressum'); return false;">Impressum</a>
             <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>
         </div>
-        <p style="margin-top: 2rem;">© 2026 Barbershop Adelsdorf – Alle Rechte vorbehalten</p>
+        <p style="margin-top: 2rem;">© 2026 Barbershop Adelsdorf — Alle Rechte vorbehalten</p>
     </footer>
 
-    <!-- Modal für Impressum und Datenschutz -->
     <div id="impressumModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('impressum')">&times;</span>
@@ -1000,44 +766,29 @@
 
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
-            if (modal) {
-                modal.style.display = 'block';
-                // Prevent body scroll when modal is open
-                document.body.style.overflow = 'hidden';
-            }
+            modal.style.display = 'block';
         }
 
         function closeModal(type) {
             const modal = document.getElementById(type + 'Modal');
-            if (modal) {
-                modal.style.display = 'none';
-                // Re-enable body scroll
-                document.body.style.overflow = 'auto';
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
             }
         }
 
-        // Close modal when clicking outside the modal content
-        window.addEventListener('click', function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return; // Skip empty hash links
-                
                 e.preventDefault();
-                const target = document.querySelector(href);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     document.getElementById('navLinks').classList.remove('active');
                 }
             });
