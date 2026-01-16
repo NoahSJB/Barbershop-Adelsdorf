@@ -737,7 +737,6 @@
         </div>
     </section>
 
-    <!-- ====== REVIEW SLIDER (einfach zwischen Bereich 1 und Bereich 2 einfügen) ====== -->
 <section class="review-carousel-section" aria-label="Bewertungen">
   <div class="review-carousel" id="reviewCarousel">
     <button class="rc-btn rc-prev" type="button" aria-label="Vorheriges Bild">
@@ -751,6 +750,7 @@
         <div class="rc-slide"><img src="bewertung_3.png" alt="Bewertung 3"></div>
         <div class="rc-slide"><img src="bewertung_4.png" alt="Bewertung 4"></div>
         <div class="rc-slide"><img src="bewertung_5.png" alt="Bewertung 5"></div>
+        <div class="rc-slide"><img src="bewertung_6.png" alt="Bewertung 5"></div>
       </div>
     </div>
 
@@ -763,7 +763,6 @@
 </section>
 
 <style>
-  /* ====== Review Carousel Styles ====== */
   .review-carousel-section{
     margin: 2.5rem auto;
     width: 100%;
@@ -857,17 +856,14 @@
     background: rgba(255,255,255,.9);
   }
 
-  /* Desktop: mehrere Bilder sichtbar */
   @media (min-width: 900px){
-    .rc-slide{ flex: 0 0 33.333%; } /* 3 Bilder */
+    .rc-slide{ flex: 0 0 33.333%; }
   }
 
-  /* Tablet: 2 Bilder */
   @media (min-width: 640px) and (max-width: 899px){
-    .rc-slide{ flex: 0 0 50%; } /* 2 Bilder */
+    .rc-slide{ flex: 0 0 50%; }
   }
 
-  /* Mobile: Pfeile kleiner */
   @media (max-width: 639px){
     .rc-btn{
       width: 36px;
@@ -888,13 +884,12 @@
     const slides = Array.from(track.querySelectorAll('.rc-slide'));
     const total = slides.length;
 
-    // --- State ---
-    let perView = 1;          // 1 mobile, 2 tablet, 3 desktop
-    let index = 0;            // group index
+    let perView = 1;          
+    let index = 0;            
     let maxIndex = 0;
     let autoTimer = null;
 
-    // Swipe
+
     let isPointerDown = false;
     let startX = 0;
     let currentX = 0;
@@ -928,7 +923,6 @@
     }
 
     function slideWidth(){
-      // width of one slide incl padding (since padding is inside slide)
       return slides[0].getBoundingClientRect().width;
     }
 
@@ -936,7 +930,6 @@
       const offset = index * perView * slideWidth();
       track.style.transform = `translateX(${-offset}px)`;
 
-      // dots
       const dots = Array.from(dotsWrap.querySelectorAll('.rc-dot'));
       dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
     }
@@ -973,15 +966,12 @@
       startAuto();
     }
 
-    // --- Events ---
     prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
     nextBtn.addEventListener('click', () => { next(); restartAuto(); });
 
-    // Pause on hover (desktop)
     viewport.addEventListener('mouseenter', stopAuto);
     viewport.addEventListener('mouseleave', startAuto);
 
-    // Touch/Pointer swipe
     viewport.addEventListener('pointerdown', (e) => {
       isPointerDown = true;
       startX = e.clientX;
@@ -996,7 +986,6 @@
       currentX = e.clientX;
       const dx = currentX - startX;
       if (Math.abs(dx) > 6) moved = true;
-      // Optional: could implement drag-follow; keep simple and stable.
     });
 
     viewport.addEventListener('pointerup', (e) => {
@@ -1017,22 +1006,18 @@
       restartAuto();
     });
 
-    // Recalc on resize
     function refresh(){
       perView = calcPerView();
       updateMaxIndex();
       buildDots();
-      // Ensure transform after layout settles
       requestAnimationFrame(updateTransform);
     }
 
     window.addEventListener('resize', () => {
-      // debounce-ish
       clearTimeout(window.__rcResizeT);
       window.__rcResizeT = setTimeout(refresh, 120);
     });
 
-    // Init
     refresh();
     startAuto();
   })();
