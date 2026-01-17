@@ -271,12 +271,14 @@
         .price-item {
             display: flex;
             justify-content: space-between;
+            align-items: baseline;
             padding: 1rem 0;
-            border-bottom: 1px dotted var(--border-gold);
-            align-items: flex-start;
+            border-bottom: none;
             opacity: 0;
             transform: translateX(-50px);
             transition: all 0.6s ease-out;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .price-item.animate {
@@ -284,14 +286,15 @@
             transform: translateX(0);
         }
 
-        .price-item:last-child {
-            border-bottom: none;
+        .price-left {
+            flex-shrink: 0;
+            max-width: calc(100% - 120px);
         }
 
         .price-name {
-            flex: 1;
             color: var(--light-text);
             font-size: 1.1rem;
+            margin-bottom: 0.2rem;
         }
 
         .price-description {
@@ -301,12 +304,22 @@
             margin-top: 0.3rem;
         }
 
+        .price-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted var(--border-gold);
+            min-width: 20px;
+            margin: 0 0.5rem;
+            align-self: flex-end;
+            margin-bottom: 0.3rem;
+        }
+
         .price-value {
             color: var(--primary-gold);
             font-weight: bold;
             font-size: 1.2rem;
-            margin-left: 2rem;
             white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: auto;
         }
 
         .special-package {
@@ -314,6 +327,30 @@
             padding: 1rem;
             margin: 1rem 0;
             border-left: 3px solid var(--primary-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .special-package .price-left {
+            flex-shrink: 0;
+            max-width: calc(100% - 120px);
+        }
+
+        .special-package .price-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted var(--border-gold);
+            min-width: 20px;
+            margin: 0 0.5rem;
+            align-self: flex-end;
+            margin-bottom: 0.3rem;
+        }
+
+        .special-package .price-value {
+            flex-shrink: 0;
+            margin-left: auto;
         }
 
         .contact-grid {
@@ -585,45 +622,55 @@
             }
 
             .price-list {
-                padding: 1.2rem 0.8rem;
+                padding: 1.5rem 1rem;
                 border-width: 2px;
+                margin: 2rem 0.5rem;
             }
 
             .price-list::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
             }
 
             .price-list h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 letter-spacing: 2px;
-                margin-bottom: 1.2rem;
+                margin-bottom: 1.5rem;
             }
 
             .price-item {
-                flex-direction: column;
-                padding: 0.8rem 0;
+                padding: 0.7rem 0;
+                gap: 0.5rem;
             }
 
             .price-name {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             .price-description {
                 font-size: 0.75rem;
             }
 
+            .price-dots {
+                margin: 0 0.3rem;
+                margin-bottom: 0.2rem;
+            }
+
             .price-value {
-                margin-left: 0;
-                margin-top: 0.4rem;
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .special-package {
-                padding: 0.8rem;
+                padding: 0.7rem;
                 margin: 0.8rem 0;
+                gap: 0.5rem;
+            }
+
+            .special-package .price-dots {
+                margin: 0 0.3rem;
+                margin-bottom: 0.2rem;
             }
 
             .contact-grid {
@@ -954,7 +1001,7 @@
 
     function startAuto(){
       stopAuto();
-      autoTimer = setInterval(next, 5000); // autoslide alle 5 Sekunden
+      autoTimer = setInterval(next, 5000);
     }
 
     function stopAuto(){
@@ -1031,97 +1078,110 @@
             <h3>UNSERE LEISTUNGEN</h3>
             
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Schneiden & Stylen</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">21,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Waschen, Schneiden & Stylen</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">23,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Bart</div>
                     <div class="price-description">trimmen, konturieren und stylen</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">18,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Nassrasur</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">18,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Maschinenschnitt</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">17,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Kinder bis 13 Jahre</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">17,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Dauerwelle</div>
                     <div class="price-description">mit Haarschnitt, stylen und Pflege</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">67,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Färben</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">ab 35,—</div>
             </div>
 
             <div class="price-item special-package">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Glanz-Paket</div>
                     <div class="price-description">Haarschnitt, stylen und Bart trimmen/konturieren</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">33,—</div>
             </div>
 
             <div class="price-item special-package">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Deluxe-Paket Komplett</div>
                     <div class="price-description">Haarschnitt & Styling, Bart (Nassrasur oder trimmen und konturieren), Augenbrauen mit Faden zupfen, Ohr- & Nasenhaar-Waxing</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">46,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Augenbrauen zupfen</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">9,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Ohr- oder Nasenhaar-Waxing</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">3,—</div>
             </div>
 
             <div class="price-item">
-                <div>
+                <div class="price-left">
                     <div class="price-name">Hair Design</div>
                 </div>
+                <div class="price-dots"></div>
                 <div class="price-value">3,—</div>
             </div>
         </div>
