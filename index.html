@@ -878,28 +878,28 @@
   .rc-next{ right: -10px; }
 
   .rc-dots{
-    margin-top: 0.75rem;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
   .rc-dot{
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    border: none;
-    background: rgba(255,255,255,.45);
-    cursor: pointer;
-    transition: width .2s ease, background .2s ease;
-  }
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(201, 169, 97, 0.35); /* Gold, inaktiv */
+  cursor: pointer;
+  transition: width .2s ease, background .2s ease;
+}
 
   .rc-dot.is-active{
-    width: 26px;
-    background: rgba(255,255,255,.9);
-  }
+  width: 26px;
+  background: #C9A961; /* Gold, aktiv */
+}
 
   @media (min-width: 900px){
     .rc-slide{ flex: 0 0 33.333%; }
