@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
     <title>Barbershop Adelsdorf | Professionelle Herrenfriseur & Bartpflege</title>
     <meta name="description" content="Ihr professioneller Barbershop in Adelsdorf. Herrenhaarschnitt, Bartpflege und Styling vom Experten seit 2019.">
     <link rel="icon" href="favicon.ico" sizes="any">
@@ -476,6 +478,9 @@
             cursor: pointer;
             position: relative;
             z-index: 2001;
+            background: none;
+            border: 0;
+            font-family: Arial, sans-serif;
         }
 
         .close:hover {
@@ -856,13 +861,378 @@
                 margin-bottom: 1rem;
             }
         }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cta-button,
+        .map-button,
+        .mobile-action {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn {
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .mobile-actions {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: calc(72px + env(safe-area-inset-bottom));
+            }
+
+            nav {
+                padding: max(0.45rem, env(safe-area-inset-top)) 1rem 0.45rem;
+            }
+
+            .nav-container {
+                min-height: 48px;
+            }
+
+            .logo {
+                max-width: calc(100% - 64px);
+                font-size: clamp(0.82rem, 3.6vw, 1rem);
+                line-height: 1.2;
+            }
+
+            .mobile-menu-btn {
+                display: inline-flex;
+                font-family: Arial, sans-serif;
+                border: 1px solid rgba(201, 169, 97, 0.45);
+            }
+
+            .nav-links {
+                display: flex;
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(-8px);
+                pointer-events: none;
+                gap: 0;
+                padding: 0.5rem 1rem 1rem;
+                box-shadow: 0 14px 24px rgba(0, 0, 0, 0.55);
+                transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+            }
+
+            .nav-links.active {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid rgba(139, 117, 72, 0.45);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: 0;
+            }
+
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                min-height: 52px;
+                width: 100%;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                min-height: min(650px, calc(100svh - 80px));
+                margin: 0.75rem;
+                padding: clamp(2.25rem, 9vw, 4rem) 1rem;
+                display: flex;
+                align-items: center;
+                background-position: 52% center;
+            }
+
+            .logo-container {
+                margin-bottom: 1.25rem;
+            }
+
+            .scissors-icon {
+                font-size: 2.5rem;
+            }
+
+            .est-text {
+                font-size: 0.78rem;
+                letter-spacing: 0.22em;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.85rem, 9vw, 3rem);
+                line-height: 1.05;
+                letter-spacing: clamp(0.12rem, 1.3vw, 0.35rem);
+            }
+
+            .hero .subtitle {
+                font-size: clamp(1rem, 5vw, 1.45rem);
+                letter-spacing: clamp(0.18rem, 1.5vw, 0.4rem);
+            }
+
+            .stars {
+                font-size: 1.05rem;
+                letter-spacing: 0.12rem;
+                margin: 0.75rem 0 1.5rem;
+            }
+
+            .cta-button,
+            .map-button {
+                width: min(100%, 340px);
+                padding: 0.85rem 1rem;
+                font-size: clamp(0.76rem, 3.4vw, 0.9rem);
+                line-height: 1.35;
+                text-align: center;
+            }
+
+            .reviews-badge {
+                margin-top: 1.25rem;
+            }
+
+            .reviews-badge img {
+                max-width: min(240px, 82vw);
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: clamp(1.18rem, 5.6vw, 1.55rem);
+                line-height: 1.3;
+                letter-spacing: clamp(0.06rem, 0.8vw, 0.14rem);
+                padding-bottom: 0.85rem;
+            }
+
+            .price-list {
+                width: 100%;
+                margin: 1.5rem 0 0;
+                padding: 1.7rem 1.15rem;
+            }
+
+            .price-list h3 {
+                font-size: clamp(1rem, 4.5vw, 1.25rem);
+                line-height: 1.3;
+                letter-spacing: 0.08rem;
+                padding-inline: 0.25rem;
+            }
+
+            .price-item,
+            .special-package {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                gap: 0.3rem 0.75rem;
+                align-items: start;
+                padding: 0.85rem 0;
+                flex-wrap: nowrap;
+            }
+
+            .price-left,
+            .special-package .price-left {
+                max-width: none;
+                min-width: 0;
+            }
+
+            .price-name {
+                font-size: 0.94rem;
+                line-height: 1.35;
+            }
+
+            .price-description {
+                font-size: 0.76rem;
+                line-height: 1.5;
+            }
+
+            .price-dots,
+            .special-package .price-dots {
+                display: none;
+            }
+
+            .price-value,
+            .special-package .price-value {
+                grid-column: 2;
+                grid-row: 1;
+                margin: 0;
+                padding-left: 0.25rem;
+                font-size: 0.98rem;
+                line-height: 1.35;
+            }
+
+            .special-package {
+                margin: 0.75rem -0.25rem;
+                padding: 0.9rem 0.75rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                max-width: 430px;
+            }
+
+            .team-image {
+                height: auto;
+                aspect-ratio: 4 / 3;
+            }
+
+            .team-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .team-role {
+                font-size: 0.9rem;
+            }
+
+            .contact-grid {
+                margin-top: 1.5rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-card h3 {
+                line-height: 1.35;
+                overflow-wrap: anywhere;
+            }
+
+            .hours-table td {
+                font-size: clamp(0.78rem, 3.5vw, 0.9rem);
+                line-height: 1.35;
+            }
+
+            .hours-table td:first-child {
+                padding-right: 0.75rem;
+            }
+
+            .map-button-container {
+                margin-top: 1.5rem;
+            }
+
+            .modal {
+                padding: 1rem;
+                overflow-y: auto;
+            }
+
+            .modal-content {
+                width: 100%;
+                margin: max(1rem, env(safe-area-inset-top)) auto;
+                max-height: calc(100dvh - 2rem);
+                overflow-y: auto;
+            }
+
+            .close {
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: -0.75rem -0.5rem 0 0;
+            }
+
+            .mobile-actions {
+                position: fixed;
+                z-index: 1500;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+                padding: 0.55rem max(0.75rem, env(safe-area-inset-left))
+                    calc(0.55rem + env(safe-area-inset-bottom))
+                    max(0.75rem, env(safe-area-inset-right));
+                background: rgba(0, 0, 0, 0.96);
+                border-top: 1px solid var(--border-gold);
+                box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.5);
+            }
+
+            .mobile-action {
+                color: var(--darker-bg);
+                background: var(--primary-gold);
+                border: 1px solid var(--primary-gold);
+                text-decoration: none;
+                font-family: Georgia, "Times New Roman", serif;
+                font-size: 0.78rem;
+                font-weight: bold;
+                letter-spacing: 0.06rem;
+                text-align: center;
+            }
+
+            .mobile-action.secondary {
+                color: var(--primary-gold);
+                background: transparent;
+            }
+        }
+
+        @media (min-width: 520px) and (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                max-width: 760px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hours-table td {
+                display: block;
+                width: 100%;
+                padding: 0.3rem 0;
+                text-align: left !important;
+            }
+
+            .hours-table tr {
+                display: block;
+                padding: 0.45rem 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .price-item {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
+    <nav aria-label="Hauptnavigation">
         <div class="nav-container">
-            <a href="#" class="logo">BARBERSHOP ADELSDORF</a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <a href="#top" class="logo">BARBERSHOP ADELSDORF</a>
+            <button class="mobile-menu-btn" type="button" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#preisliste">PREISLISTE</a></li>
 				<li><a href="#team">UNSER TEAM</a></li>
@@ -872,7 +1242,7 @@
         </div>
     </nav>
     
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero-content">
             <div class="logo-container">
                 <div class="scissors-icon">✂</div>
@@ -884,7 +1254,7 @@
             <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
             
             <div class="reviews-badge">
-                <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" loading="lazy">
+                <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" width="1536" height="1024" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -1011,7 +1381,7 @@
         <div class="team-grid">
             <div class="team-card">
                 <div class="team-image">
-                    <img src="Barber_1.png" alt="Ahmad - Besitzer & Friseur">
+                    <img src="Barber_1.png" alt="Ahmad - Besitzer & Friseur" width="1024" height="1024" loading="lazy" decoding="async">
                 </div>
                 <h3>Ahmad</h3>
                 <p class="team-role">Besitzer - Friseur</p>
@@ -1019,7 +1389,7 @@
 
             <div class="team-card">
                 <div class="team-image">
-                    <img src="Barber_2.png" alt="Ahmad - Friseur">
+                    <img src="Barber_2.png" alt="Ahmad - Friseur" width="1024" height="1024" loading="lazy" decoding="async">
                 </div>
                 <h3>Ahmad</h3>
                 <p class="team-role">Friseur</p>
@@ -1036,12 +1406,12 @@
 
     <div class="rc-viewport" id="rcViewport">
       <div class="rc-track" id="rcTrack">
-        <div class="rc-slide"><img src="bewertung_1.png" alt="Bewertung 1"></div>
-        <div class="rc-slide"><img src="bewertung_2.png" alt="Bewertung 2"></div>
-        <div class="rc-slide"><img src="bewertung_3.png" alt="Bewertung 3"></div>
-        <div class="rc-slide"><img src="bewertung_4.png" alt="Bewertung 4"></div>
-        <div class="rc-slide"><img src="bewertung_5.png" alt="Bewertung 5"></div>
-        <div class="rc-slide"><img src="bewertung_6.png" alt="Bewertung 5"></div>
+        <div class="rc-slide"><img src="bewertung_1.png" alt="Kundenbewertung 1" width="750" height="350" loading="lazy" decoding="async"></div>
+        <div class="rc-slide"><img src="bewertung_2.png" alt="Kundenbewertung 2" width="750" height="350" loading="lazy" decoding="async"></div>
+        <div class="rc-slide"><img src="bewertung_3.png" alt="Kundenbewertung 3" width="750" height="350" loading="lazy" decoding="async"></div>
+        <div class="rc-slide"><img src="bewertung_4.png" alt="Kundenbewertung 4" width="750" height="350" loading="lazy" decoding="async"></div>
+        <div class="rc-slide"><img src="bewertung_5.png" alt="Kundenbewertung 5" width="750" height="350" loading="lazy" decoding="async"></div>
+        <div class="rc-slide"><img src="bewertung_6.png" alt="Kundenbewertung 6" width="750" height="350" loading="lazy" decoding="async"></div>
       </div>
     </div>
 
@@ -1068,7 +1438,7 @@
   
   .review-carousel{
     position: relative;
-    width: min(980px, calc(100% - 2rem));
+    width: min(980px, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1077,7 +1447,7 @@
   .rc-viewport{
     width: 100%;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: 10px;
   }
 
   .rc-track{
@@ -1098,7 +1468,7 @@
     height: auto;
     display: block;
     margin: 0 auto; 
-    border-radius: 16px;
+    border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,.18);
     user-select: none;
     -webkit-user-drag: none;
@@ -1111,10 +1481,10 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    border: none;
+    border: 1px solid rgba(201, 169, 97, 0.75);
     cursor: pointer;
-    background: rgba(15,23,42,.9);
-    color: #fff;
+    background: rgba(0,0,0,.92);
+    color: #c9a961;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1122,7 +1492,8 @@
     transition: transform .2s ease, background .2s ease;
   }
   .rc-btn:hover{
-    background: rgba(15,23,42,1);
+    background: #c9a961;
+    color: #000;
     transform: translateY(-50%) scale(1.06);
   }
   .rc-prev{ left: -10px; }
@@ -1161,13 +1532,33 @@
   }
 
   @media (max-width: 639px){
+    .review-carousel-section {
+      margin: 0 auto;
+    }
+    .review-carousel {
+      width: 100%;
+    }
+    .rc-slide {
+      padding: 0.35rem 2.6rem;
+    }
     .rc-btn{
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       font-size: 1.2rem;
     }
+    .rc-prev{ left: 0; }
+    .rc-next{ right: 0; }
     .rc-slide img {
-        max-width: 200px;
+        width: 100%;
+        max-width: 300px;
+    }
+    .rc-dots {
+      gap: 8px;
+      margin-top: 1rem;
+    }
+    .rc-dot {
+      width: 12px;
+      height: 12px;
     }
   }
 </style>
@@ -1187,6 +1578,7 @@
     let index = 0;            
     let maxIndex = 0;
     let autoTimer = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 
     let isPointerDown = false;
@@ -1253,6 +1645,7 @@
 
     function startAuto(){
       stopAuto();
+      if (reduceMotion || document.hidden) return;
       autoTimer = setInterval(next, 5000);
     }
 
@@ -1317,6 +1710,11 @@
       window.__rcResizeT = setTimeout(refresh, 120);
     });
 
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAuto();
+      else startAuto();
+    });
+
     refresh();
     startAuto();
   })();
@@ -1358,15 +1756,20 @@
         </div>
 
         <div class="map-button-container">
-            <a href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" class="map-button">📍 ROUTENPLANUNG MIT GOOGLE MAPS</a>
+            <a href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" rel="noopener noreferrer" class="map-button">📍 ROUTENPLANUNG MIT GOOGLE MAPS</a>
         </div>
     </section>
+
+    <div class="mobile-actions" aria-label="Schnellaktionen">
+        <a class="mobile-action" href="tel:091955074412">ANRUFEN</a>
+        <a class="mobile-action secondary" href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" rel="noopener noreferrer">ROUTE</a>
+    </div>
 
     <footer>
         <h3>BARBERSHOP ADELSDORF</h3>
         <p>Ihr professioneller Barbershop seit 2019</p>
         <div class="footer-links">
-            <a href="https://www.instagram.com/barbershop.adelsdorf/" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/barbershop.adelsdorf/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="#" onclick="openModal('impressum'); return false;">Impressum</a>
             <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>
         </div>
@@ -1381,18 +1784,18 @@
 </p>
     </footer>
 
-    <div id="impressumModal" class="modal">
+    <div id="impressumModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('impressum')">&times;</span>
-            <h2>Impressum</h2>
+            <button class="close" type="button" onclick="closeModal('impressum')" aria-label="Impressum schließen">&times;</button>
+            <h2 id="impressumTitle">Impressum</h2>
             <p>Hier steht der Impressum-Text, der noch von Ihnen eingefügt werden muss.</p>
         </div>
     </div>
 
-    <div id="datenschutzModal" class="modal">
+    <div id="datenschutzModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="datenschutzTitle">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('datenschutz')">&times;</span>
-            <h2>Datenschutz</h2>
+            <button class="close" type="button" onclick="closeModal('datenschutz')" aria-label="Datenschutz schließen">&times;</button>
+            <h2 id="datenschutzTitle">Datenschutz</h2>
             <p>Hier steht die Datenschutzerklärung, die noch von Ihnen eingefügt werden muss.</p>
         </div>
     </div>
@@ -1400,37 +1803,81 @@
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            const menuButton = document.querySelector('.mobile-menu-btn');
+            const isOpen = navLinks.classList.toggle('active');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+            menuButton.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+            menuButton.textContent = isOpen ? '×' : '☰';
         }
 
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
             modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            modal.querySelector('.close').focus();
         }
 
         function closeModal(type) {
             const modal = document.getElementById(type + 'Modal');
             modal.style.display = 'none';
+            document.body.style.overflow = '';
         }
 
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
+                document.body.style.overflow = '';
             }
         }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
                 if (target) {
+                    e.preventDefault();
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                         block: 'start'
                     });
-                    document.getElementById('navLinks').classList.remove('active');
+                    const navLinks = document.getElementById('navLinks');
+                    const menuButton = document.querySelector('.mobile-menu-btn');
+                    navLinks.classList.remove('active');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    menuButton.setAttribute('aria-label', 'Menü öffnen');
+                    menuButton.textContent = '☰';
                 }
             });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+
+            document.querySelectorAll('.modal').forEach((modal) => {
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            const navLinks = document.getElementById('navLinks');
+            const menuButton = document.querySelector('.mobile-menu-btn');
+            navLinks.classList.remove('active');
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.setAttribute('aria-label', 'Menü öffnen');
+            menuButton.textContent = '☰';
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const navLinks = document.getElementById('navLinks');
+                const menuButton = document.querySelector('.mobile-menu-btn');
+                navLinks.classList.remove('active');
+                menuButton.setAttribute('aria-expanded', 'false');
+                menuButton.setAttribute('aria-label', 'Menü öffnen');
+                menuButton.textContent = '☰';
+            }
         });
 
         const priceObserver = new IntersectionObserver((entries) => {
@@ -1444,9 +1891,13 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.price-item').forEach((item) => {
-            priceObserver.observe(item);
-        });
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.price-item').forEach((item) => item.classList.add('animate'));
+        } else {
+            document.querySelectorAll('.price-item').forEach((item) => {
+                priceObserver.observe(item);
+            });
+        }
     </script>
 </body>
 </html>
