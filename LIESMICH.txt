@@ -1,0 +1,21 @@
+BARBER SHOP ADELSDORF – WEBSITE
+===============================
+
+HOCHLADEN (z. B. Strato)
+Den gesamten Inhalt dieses Ordners per FTP/SFTP in das Hauptverzeichnis
+der Domain hochladen. NICHT hochladen: .git, .claude, .gitignore, LIESMICH.txt
+
+VOR DEM LIVESCHALTEN ERLEDIGEN
+1. impressum.html + datenschutz.html: echte E-Mail-Adresse eintragen
+   (rot markiert, aktuell Platzhalter info@barbershop-adelsdorf.de).
+2. impressum.html: USt-IdNr. eintragen – oder den Abschnitt löschen,
+   falls keine existiert.
+3. Öffnungszeiten prüfen (index.html + assets/js/main.js, Objekt HOURS).
+4. Nach Einrichtung des SSL-Zertifikats in .htaccess die HTTPS-Weiterleitung
+   aktivieren (Zeilen entkommentieren).
+5. Bei Strato den Auftragsverarbeitungsvertrag (AVV) im Kundenlogin abschließen.
+
+RECHTLICHES
+- Keine Cookies, kein Tracking, keine externen Ressourcen -> kein Cookie-Banner nötig.
+- Schriften lokal: Roboto Slab (Apache 2.0), Lora (SIL OFL 1.1), Lizenzen in assets/fonts/.
+- Google Maps & Instagram nur als einfache Links (keine Einbettung).

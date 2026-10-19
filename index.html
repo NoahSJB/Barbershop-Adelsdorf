@@ -1,2480 +1,438 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
-    <title>Barbershop Adelsdorf | Professionelle Herrenfriseur & Bartpflege</title>
-    <meta name="description" content="Ihr professioneller Barbershop in Adelsdorf. Herrenhaarschnitt, Bartpflege und Styling vom Experten seit 2019.">
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="canonical" href="https://barbershop-adelsdorf.de/">
-    <style>
-        @font-face {
-            font-family: "Roboto Slab Local";
-            src: url("fonts/RobotoSlab-Variable.ttf") format("truetype");
-            font-style: normal;
-            font-weight: 100 900;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: "Lora Local";
-            src: url("fonts/Lora-Italic-Variable.ttf") format("truetype");
-            font-style: italic;
-            font-weight: 400 700;
-            font-display: swap;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-gold: #c9a961;
-            --dark-bg: #0a0a0a;
-            --darker-bg: #000000;
-            --light-text: #ffffff;
-            --gray-text: #a09080;
-            --accent-gold: #d4b888;
-            --border-gold: #8b7548;
-            --font-brand: "Roboto Slab Local", "Roboto Slab", Rockwell, Georgia, serif;
-            --font-copy: "Roboto Slab Local", "Roboto Slab", Rockwell, Georgia, serif;
-            --font-italic: "Lora Local", Lora, Georgia, serif;
-        }
-
-        body {
-            font-family: var(--font-copy);
-            line-height: 1.6;
-            color: var(--light-text);
-            background-color: var(--dark-bg);
-        }
-
-        nav {
-            background-color: var(--darker-bg);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            border-bottom: 2px solid var(--border-gold);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary-gold);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-gold);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .hero {
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Barber_Background.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 4rem 2rem;
-        text-align: center;
-        border: 3px solid var(--border-gold);
-        margin: 2rem auto;
-        max-width: 1200px;
-        position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px solid var(--border-gold);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-container {
-            margin-bottom: 2rem;
-        }
-
-        .scissors-icon {
-            display: inline-block;
-            font-size: 3rem;
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-        }
-
-        .est-text {
-            font-size: 1rem;
-            color: var(--primary-gold);
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            color: var(--light-text);
-            font-weight: bold;
-            letter-spacing: 8px;
-        }
-
-        .hero .subtitle {
-            font-size: 2rem;
-            color: var(--primary-gold);
-            letter-spacing: 6px;
-            margin-bottom: 1rem;
-        }
-
-        .stars {
-            color: var(--primary-gold);
-            font-size: 1.2rem;
-            margin: 1rem 0 2rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: var(--gray-text);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: transparent;
-            color: var(--primary-gold);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 0;
-            transition: all 0.3s;
-            border: 2px solid var(--primary-gold);
-            letter-spacing: 2px;
-        }
-
-        .cta-button:hover {
-            background-color: var(--primary-gold);
-            color: var(--darker-bg);
-        }
-
-        .reviews-badge {
-            background-color: transparent;
-            padding: 1.5rem 0;
-            margin: 2rem auto 0;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .reviews-badge img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 0;
-            box-shadow: none;
-            border: none;
-        }
-
-        .map-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: transparent;
-            color: var(--primary-gold);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: 2px solid var(--primary-gold);
-            letter-spacing: 2px;
-            transition: all 0.3s;
-            margin-top: 1.5rem;
-            cursor: pointer;
-        }
-
-        .map-button:hover {
-            background-color: var(--primary-gold);
-            color: var(--darker-bg);
-        }
-
-        .map-button-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--light-text);
-            text-align: center;
-            letter-spacing: 4px;
-            border-bottom: 2px solid var(--border-gold);
-            padding-bottom: 1rem;
-        }
-
-        .price-list {
-            max-width: 800px;
-            margin: 3rem auto;
-            background-color: var(--darker-bg);
-            padding: 3rem;
-            border: 3px solid var(--border-gold);
-            position: relative;
-        }
-
-        .price-list::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--border-gold);
-            pointer-events: none;
-        }
-
-        .price-list h3 {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--light-text);
-            letter-spacing: 4px;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-gold);
-            padding-bottom: 1rem;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: none;
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.6s ease-out;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .price-item.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .price-left {
-            flex-shrink: 0;
-            max-width: calc(100% - 120px);
-        }
-
-        .price-name {
-            color: var(--light-text);
-            font-size: 0.95rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .price-description {
-            font-size: 0.75rem;
-            color: var(--gray-text);
-            font-style: italic;
-            margin-top: 0.3rem;
-        }
-
-        .price-dots {
-            flex-grow: 1;
-            border-bottom: 2px dotted var(--border-gold);
-            min-width: 20px;
-            margin: 0 0.5rem;
-            align-self: center;
-        }
-
-        .price-value {
-            color: var(--primary-gold);
-            font-weight: bold;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-            margin-left: auto;
-        }
-
-        .special-package {
-            background-color: rgba(201, 169, 97, 0.1);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-left: 3px solid var(--primary-gold);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .special-package .price-left {
-            flex-shrink: 0;
-            max-width: calc(100% - 120px);
-        }
-
-        .special-package .price-dots {
-            flex-grow: 1;
-            border-bottom: 2px dotted var(--border-gold);
-            min-width: 20px;
-            margin: 0 0.5rem;
-            align-self: center;
-        }
-
-        .special-package .price-value {
-            flex-shrink: 0;
-            margin-left: auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background-color: var(--darker-bg);
-            padding: 2rem;
-            border: 3px solid var(--border-gold);
-            position: relative;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--border-gold);
-            pointer-events: none;
-        }
-
-        .contact-card h3 {
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .contact-info {
-            color: var(--gray-text);
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info p {
-            padding: 0.5rem 0;
-        }
-
-        .contact-info strong {
-            color: var(--light-text);
-        }
-
-        .hours-table {
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hours-table tr {
-            border-bottom: 1px dotted var(--border-gold);
-        }
-
-        .hours-table td {
-            padding: 0.8rem 0;
-        }
-
-        .hours-table td:first-child {
-            color: var(--light-text);
-        }
-
-        .hours-table td:last-child {
-            color: var(--gray-text);
-            text-align: right;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            background-color: var(--darker-bg);
-            margin: 10% auto;
-            padding: 3rem;
-            border: 3px solid var(--border-gold);
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .modal-content::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--border-gold);
-            pointer-events: none;
-        }
-
-        .modal-content h2 {
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--border-gold);
-            padding-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .modal-content p {
-            color: var(--gray-text);
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        .close {
-            color: var(--primary-gold);
-            float: right;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-            position: relative;
-            z-index: 2001;
-            background: none;
-            border: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .close:hover {
-            color: var(--light-text);
-        }
-
-        footer {
-            background-color: var(--darker-bg);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 3px solid var(--border-gold);
-        }
-
-        footer h3 {
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-        }
-
-        footer p {
-            color: var(--gray-text);
-        }
-
-        .footer-links {
-            margin: 1.5rem 0;
-        }
-
-        .footer-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-gold);
-        }
-
-         .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .team-card {
-            background-color: var(--darker-bg);
-            padding: 0;
-            border: 3px solid var(--border-gold);
-            position: relative;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 1px solid var(--border-gold);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        .team-image {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .team-card:hover .team-image img {
-            transform: scale(1.05);
-        }
-
-        .team-card h3 {
-            color: var(--light-text);
-            font-size: 1.4rem;
-            margin: 1.5rem 0 0.5rem;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .team-role {
-            color: var(--primary-gold);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--darker-bg);
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-                border-bottom: 2px solid var(--border-gold);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            nav {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo {
-                font-size: 0.9rem;
-                letter-spacing: 1px;
-            }
-
-            .hero {
-                margin: 0.8rem;
-                padding: 1.5rem 0.8rem;
-                border-width: 2px;
-            }
-
-            .hero::before {
-                top: 8px;
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-            }
-
-            .scissors-icon {
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .est-text {
-                font-size: 0.7rem;
-                letter-spacing: 2px;
-                margin-bottom: 0.3rem;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-                letter-spacing: 3px;
-                margin-bottom: 0.3rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-                letter-spacing: 2px;
-                margin-bottom: 0.5rem;
-            }
-
-            .stars {
-                font-size: 0.9rem;
-                margin: 0.5rem 0 1rem;
-            }
-
-            .cta-button {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-            }
-
-            .reviews-badge {
-                padding: 0.8rem 0;
-                margin: 1rem auto 0;
-                max-width: 100%;
-            }
-        
-            .reviews-badge img {
-                max-width: 220px;
-                width: 100%;
-                height: auto;
-            }
-
-            .map-button {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.75rem;
-                letter-spacing: 1px;
-            }
-
-            section {
-                padding: 2rem 0.8rem;
-            }
-
-            section h2 {
-                font-size: 1.3rem;
-                letter-spacing: 2px;
-                margin-bottom: 1.5rem;
-            }
-
-            .price-list {
-                padding: 1.5rem 1rem;
-                border-width: 2px;
-                margin: 2rem 0.5rem;
-            }
-
-            .price-list::before {
-                top: 8px;
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-            }
-
-            .price-list h3 {
-                font-size: 1.3rem;
-                letter-spacing: 2px;
-                margin-bottom: 1.5rem;
-            }
-
-            .price-item {
-                padding: 0.7rem 0;
-                gap: 0.5rem;
-            }
-
-            .price-name {
-                font-size: 0.9rem;
-            }
-
-            .price-description {
-                font-size: 0.75rem;
-            }
-
-            .price-dots {
-                margin: 0 0.3rem;
-                margin-bottom: 0.2rem;
-            }
-
-            .price-value {
-                font-size: 1rem;
-            }
-
-            .special-package {
-                padding: 0.7rem;
-                margin: 0.8rem 0;
-                gap: 0.5rem;
-            }
-
-            .special-package .price-dots {
-                margin: 0 0.3rem;
-                margin-bottom: 0.2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .contact-card {
-                padding: 1.2rem 0.8rem;
-                border-width: 2px;
-            }
-
-            .contact-card::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .contact-card h3 {
-                font-size: 1.1rem;
-                letter-spacing: 1px;
-            }
-
-            .contact-info {
-                font-size: 0.9rem;
-            }
-
-            .contact-info p {
-                padding: 0.3rem 0;
-            }
-
-            .hours-table td {
-                padding: 0.5rem 0;
-                font-size: 0.9rem;
-            }
-
-            footer {
-                padding: 2rem 1rem;
-            }
-
-            footer h3 {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-            }
-
-            footer p {
-                font-size: 0.85rem;
-            }
-
-            .footer-links {
-                margin: 1rem 0;
-            }
-
-            .footer-links a {
-                display: block;
-                margin: 0.5rem 0;
-                font-size: 0.85rem;
-            }
-
-            .modal-content {
-                padding: 1.5rem 1rem;
-                border-width: 2px;
-            }
-
-            .modal-content::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .modal-content h2 {
-                font-size: 1.3rem;
-            }
-
-            .modal-content p {
-                font-size: 0.9rem;
-            }
-             .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                margin-top: 2rem;
-            }
-
-            .team-card {
-                border-width: 2px;
-            }
-
-            .team-card::before {
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-            }
-
-            .team-image {
-                height: 200px;
-            }
-
-            .team-card h3 {
-                font-size: 1.1rem;
-                margin: 1rem 0 0.3rem;
-                letter-spacing: 1px;
-            }
-
-            .team-role {
-                font-size: 0.8rem;
-                margin-bottom: 1rem;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 88px;
-            overflow-x: hidden;
-        }
-
-        body {
-            overflow-x: hidden;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a, button {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .cta-button,
-        .map-button,
-        .mobile-action {
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-menu-btn {
-            width: 48px;
-            height: 48px;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .mobile-actions {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-bottom: calc(72px + env(safe-area-inset-bottom));
-            }
-
-            nav {
-                padding: max(0.45rem, env(safe-area-inset-top)) 1rem 0.45rem;
-            }
-
-            .nav-container {
-                min-height: 48px;
-            }
-
-            .logo {
-                max-width: calc(100% - 64px);
-                font-size: clamp(0.82rem, 3.6vw, 1rem);
-                line-height: 1.2;
-            }
-
-            .mobile-menu-btn {
-                display: inline-flex;
-                font-family: Arial, sans-serif;
-                border: 1px solid rgba(201, 169, 97, 0.45);
-            }
-
-            .nav-links {
-                display: flex;
-                visibility: hidden;
-                opacity: 0;
-                transform: translateY(-8px);
-                pointer-events: none;
-                gap: 0;
-                padding: 0.5rem 1rem 1rem;
-                box-shadow: 0 14px 24px rgba(0, 0, 0, 0.55);
-                transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
-            }
-
-            .nav-links.active {
-                visibility: visible;
-                opacity: 1;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-
-            .nav-links li {
-                width: 100%;
-                border-bottom: 1px solid rgba(139, 117, 72, 0.45);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: 0;
-            }
-
-            .nav-links a {
-                display: flex;
-                align-items: center;
-                min-height: 52px;
-                width: 100%;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                min-height: min(650px, calc(100svh - 80px));
-                margin: 0.75rem;
-                padding: clamp(2.25rem, 9vw, 4rem) 1rem;
-                display: flex;
-                align-items: center;
-                background-position: 52% center;
-            }
-
-            .logo-container {
-                margin-bottom: 1.25rem;
-            }
-
-            .scissors-icon {
-                font-size: 2.5rem;
-            }
-
-            .est-text {
-                font-size: 0.78rem;
-                letter-spacing: 0.22em;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.85rem, 9vw, 3rem);
-                line-height: 1.05;
-                letter-spacing: clamp(0.12rem, 1.3vw, 0.35rem);
-            }
-
-            .hero .subtitle {
-                font-size: clamp(1rem, 5vw, 1.45rem);
-                letter-spacing: clamp(0.18rem, 1.5vw, 0.4rem);
-            }
-
-            .stars {
-                font-size: 1.05rem;
-                letter-spacing: 0.12rem;
-                margin: 0.75rem 0 1.5rem;
-            }
-
-            .cta-button,
-            .map-button {
-                width: min(100%, 340px);
-                padding: 0.85rem 1rem;
-                font-size: clamp(0.76rem, 3.4vw, 0.9rem);
-                line-height: 1.35;
-                text-align: center;
-            }
-
-            .reviews-badge {
-                margin-top: 1.25rem;
-            }
-
-            .reviews-badge img {
-                max-width: min(240px, 82vw);
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            section h2 {
-                font-size: clamp(1.18rem, 5.6vw, 1.55rem);
-                line-height: 1.3;
-                letter-spacing: clamp(0.06rem, 0.8vw, 0.14rem);
-                padding-bottom: 0.85rem;
-            }
-
-            .price-list {
-                width: 100%;
-                margin: 1.5rem 0 0;
-                padding: 1.7rem 1.15rem;
-            }
-
-            .price-list h3 {
-                font-size: clamp(1rem, 4.5vw, 1.25rem);
-                line-height: 1.3;
-                letter-spacing: 0.08rem;
-                padding-inline: 0.25rem;
-            }
-
-            .price-item,
-            .special-package {
-                display: grid;
-                grid-template-columns: minmax(0, 1fr) auto;
-                gap: 0.3rem 0.75rem;
-                align-items: start;
-                padding: 0.85rem 0;
-                flex-wrap: nowrap;
-            }
-
-            .price-left,
-            .special-package .price-left {
-                max-width: none;
-                min-width: 0;
-            }
-
-            .price-name {
-                font-size: 0.94rem;
-                line-height: 1.35;
-            }
-
-            .price-description {
-                font-size: 0.76rem;
-                line-height: 1.5;
-            }
-
-            .price-dots,
-            .special-package .price-dots {
-                display: none;
-            }
-
-            .price-value,
-            .special-package .price-value {
-                grid-column: 2;
-                grid-row: 1;
-                margin: 0;
-                padding-left: 0.25rem;
-                font-size: 0.98rem;
-                line-height: 1.35;
-            }
-
-            .special-package {
-                margin: 0.75rem -0.25rem;
-                padding: 0.9rem 0.75rem;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-                max-width: 430px;
-            }
-
-            .team-image {
-                height: auto;
-                aspect-ratio: 4 / 3;
-            }
-
-            .team-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .team-role {
-                font-size: 0.9rem;
-            }
-
-            .contact-grid {
-                margin-top: 1.5rem;
-            }
-
-            .contact-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .contact-card h3 {
-                line-height: 1.35;
-                overflow-wrap: anywhere;
-            }
-
-            .hours-table td {
-                font-size: clamp(0.78rem, 3.5vw, 0.9rem);
-                line-height: 1.35;
-            }
-
-            .hours-table td:first-child {
-                padding-right: 0.75rem;
-            }
-
-            .map-button-container {
-                margin-top: 1.5rem;
-            }
-
-            .modal {
-                padding: 1rem;
-                overflow-y: auto;
-            }
-
-            .modal-content {
-                width: 100%;
-                margin: max(1rem, env(safe-area-inset-top)) auto;
-                max-height: calc(100dvh - 2rem);
-                overflow-y: auto;
-            }
-
-            .close {
-                width: 48px;
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: -0.75rem -0.5rem 0 0;
-            }
-
-            .mobile-actions {
-                position: fixed;
-                z-index: 1500;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.5rem;
-                padding: 0.55rem max(0.75rem, env(safe-area-inset-left))
-                    calc(0.55rem + env(safe-area-inset-bottom))
-                    max(0.75rem, env(safe-area-inset-right));
-                background: rgba(0, 0, 0, 0.96);
-                border-top: 1px solid var(--border-gold);
-                box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.5);
-            }
-
-            .mobile-action {
-                color: var(--darker-bg);
-                background: var(--primary-gold);
-                border: 1px solid var(--primary-gold);
-                text-decoration: none;
-                font-family: var(--font-copy);
-                font-size: 0.78rem;
-                font-weight: bold;
-                letter-spacing: 0.06rem;
-                text-align: center;
-            }
-
-            .mobile-action.secondary {
-                color: var(--primary-gold);
-                background: transparent;
-            }
-        }
-
-        @media (min-width: 520px) and (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                max-width: 760px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .hours-table td {
-                display: block;
-                width: 100%;
-                padding: 0.3rem 0;
-                text-align: left !important;
-            }
-
-            .hours-table tr {
-                display: block;
-                padding: 0.45rem 0;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .price-item {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        /* Brand styling based on the physical shop logo */
-        :root {
-            --primary-gold: #cba44f;
-            --accent-gold: #ddb967;
-            --border-gold: #8f7137;
-            --logo-white: #f6f3ec;
-            --ink-black: #080808;
-        }
-
-        body {
-            font-family: var(--font-copy);
-            background-color: var(--ink-black);
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)),
-                repeating-linear-gradient(
-                    91deg,
-                    transparent 0,
-                    transparent 76px,
-                    rgba(255, 255, 255, 0.018) 77px,
-                    rgba(0, 0, 0, 0.22) 80px,
-                    transparent 83px
-                ),
-                repeating-linear-gradient(
-                    3deg,
-                    rgba(255, 255, 255, 0.008) 0,
-                    rgba(255, 255, 255, 0.008) 1px,
-                    transparent 2px,
-                    transparent 7px
-                );
-        }
-
-        nav,
-        footer,
-        .mobile-actions {
-            background-color: rgba(5, 5, 5, 0.98);
-            background-image: repeating-linear-gradient(
-                91deg,
-                transparent 0,
-                transparent 92px,
-                rgba(255, 255, 255, 0.018) 93px,
-                rgba(0, 0, 0, 0.3) 96px
-            );
-        }
-
-        .logo,
-        .nav-links a,
-        .cta-button,
-        .map-button,
-        .mobile-action,
-        section h2,
-        .price-list h3,
-        .contact-card h3,
-        footer h3 {
-            font-family: var(--font-brand);
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .logo {
-            color: var(--logo-white);
-            letter-spacing: 0.11em;
-            text-shadow: 0 1px 0 #000;
-        }
-
-        .logo span {
-            color: var(--primary-gold);
-        }
-
-        .hero {
-            overflow: hidden;
-            isolation: isolate;
-            background:
-                linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.9)),
-                linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.72)),
-                url("Barber_Background.png");
-            box-shadow:
-                0 24px 70px rgba(0, 0, 0, 0.7),
-                inset 0 0 80px rgba(0, 0, 0, 0.62);
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.5;
-            background:
-                repeating-linear-gradient(
-                    90deg,
-                    transparent 0,
-                    transparent 105px,
-                    rgba(0, 0, 0, 0.28) 108px,
-                    rgba(255, 255, 255, 0.025) 110px,
-                    transparent 113px
-                ),
-                repeating-linear-gradient(
-                    2deg,
-                    rgba(255, 255, 255, 0.018) 0,
-                    transparent 1px,
-                    transparent 5px
-                );
-            mix-blend-mode: overlay;
-        }
-
-        .hero-content {
-            max-width: 1040px;
-        }
-
-        .logo-container {
-            width: min(100%, 1040px);
-            margin-inline: auto;
-            margin-bottom: 1.8rem;
-            padding: 1rem 0.5rem 0.5rem;
-            filter: drop-shadow(0 7px 7px rgba(0, 0, 0, 0.82));
-        }
-
-        .brand-topline {
-            display: grid;
-            grid-template-columns: minmax(45px, 1fr) auto 92px auto minmax(45px, 1fr);
-            align-items: center;
-            gap: clamp(0.6rem, 2vw, 1.5rem);
-            width: min(100%, 920px);
-            margin: 0 auto -0.5rem;
-        }
-
-        .brand-flourish {
-            width: 100%;
-            height: auto;
-            overflow: visible;
-            fill: none;
-            stroke: var(--primary-gold);
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .brand-flourish-right {
-            transform: scaleX(-1);
-        }
-
-        .est-part {
-            color: var(--primary-gold);
-            font-family: var(--font-brand);
-            font-size: clamp(1.2rem, 2.8vw, 2rem);
-            font-weight: 900;
-            letter-spacing: 0.07em;
-            line-height: 1;
-        }
-
-        .brand-scissors {
-            width: 92px;
-            height: 92px;
-            overflow: visible;
-            fill: none;
-            stroke: var(--primary-gold);
-            stroke-width: 6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .brand-scissors .scissor-pivot {
-            fill: var(--ink-black);
-            stroke-width: 2;
-        }
-
-        .hero h1 {
-            margin: 0;
-            color: var(--logo-white);
-            font-family: var(--font-brand);
-            font-size: clamp(3.8rem, 8vw, 7.8rem);
-            font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: 0.035em;
-            text-transform: uppercase;
-            text-shadow:
-                0 3px 0 #171717,
-                0 6px 12px rgba(0, 0, 0, 0.85);
-            white-space: nowrap;
-        }
-
-        .brand-location {
-            display: grid;
-            grid-template-columns: minmax(30px, 1fr) auto minmax(30px, 1fr);
-            align-items: center;
-            gap: clamp(0.75rem, 2.5vw, 2rem);
-            width: min(100%, 860px);
-            margin: 0.7rem auto 0;
-        }
-
-        .brand-line {
-            position: relative;
-            height: 13px;
-            border-top: 2px solid var(--primary-gold);
-            border-radius: 50%;
-            transform: translateY(5px);
-            opacity: 0.9;
-        }
-
-        .brand-line::before {
-            content: "";
-            position: absolute;
-            top: -7px;
-            width: 34px;
-            height: 18px;
-            border: 2px solid var(--primary-gold);
-            border-right-color: transparent;
-            border-bottom-color: transparent;
-            border-radius: 50%;
-        }
-
-        .brand-line:first-child::before {
-            left: 0;
-            transform: rotate(-23deg);
-        }
-
-        .brand-line:last-child::before {
-            right: 0;
-            transform: scaleX(-1) rotate(-23deg);
-        }
-
-        .brand-line:first-child {
-            transform: translateY(5px) rotate(-2deg);
-        }
-
-        .brand-line:last-child {
-            transform: translateY(5px) rotate(2deg);
-        }
-
-        .hero .subtitle {
-            margin: 0;
-            color: var(--primary-gold);
-            font-family: var(--font-brand);
-            font-size: clamp(1.8rem, 4vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.85);
-        }
-
-        .stars {
-            margin: 0.6rem 0 1.2rem;
-            color: var(--primary-gold);
-            font-size: clamp(1.25rem, 2.8vw, 2rem);
-            line-height: 1;
-            letter-spacing: 0.16em;
-            text-shadow: 0 3px 7px rgba(0, 0, 0, 0.8);
-        }
-
-        .cta-button,
-        .map-button {
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
-                rgba(5, 5, 5, 0.84);
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-                0 6px 18px rgba(0, 0, 0, 0.42);
-        }
-
-        .cta-button:hover,
-        .map-button:hover {
-            box-shadow: 0 7px 24px rgba(203, 164, 79, 0.28);
-        }
-
-        section h2 {
-            display: flex;
-            align-items: center;
-            gap: clamp(0.75rem, 2.5vw, 1.75rem);
-            border-bottom: 0;
-            color: var(--logo-white);
-            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-            letter-spacing: 0.09em;
-        }
-
-        section h2::before,
-        section h2::after {
-            content: "";
-            flex: 1;
-            height: 9px;
-            border-top: 2px solid var(--border-gold);
-            border-radius: 50%;
-            opacity: 0.9;
-        }
-
-        section h2::before {
-            transform: rotate(-1.5deg);
-        }
-
-        section h2::after {
-            transform: rotate(1.5deg);
-        }
-
-        .price-list,
-        .contact-card,
-        .team-card,
-        .modal-content {
-            background-color: rgba(4, 4, 4, 0.96);
-            background-image:
-                repeating-linear-gradient(
-                    91deg,
-                    transparent 0,
-                    transparent 86px,
-                    rgba(255, 255, 255, 0.018) 87px,
-                    rgba(0, 0, 0, 0.25) 90px
-                ),
-                linear-gradient(145deg, rgba(203, 164, 79, 0.025), transparent 45%);
-            box-shadow:
-                0 18px 45px rgba(0, 0, 0, 0.42),
-                inset 0 0 45px rgba(0, 0, 0, 0.5);
-        }
-
-        .price-list h3 {
-            color: var(--primary-gold);
-            border-bottom-color: var(--border-gold);
-        }
-
-        .price-name,
-        .price-value,
-        .team-card h3 {
-            font-family: var(--font-brand);
-            font-weight: 750;
-        }
-
-        .special-package {
-            background:
-                linear-gradient(90deg, rgba(203, 164, 79, 0.17), rgba(203, 164, 79, 0.035));
-            border-left-width: 5px;
-        }
-
-        .team-card h3,
-        footer h3 {
-            letter-spacing: 0.1em;
-        }
-
-        footer h3::before,
-        footer h3::after {
-            content: "★";
-            margin: 0 0.6rem;
-            color: var(--primary-gold);
-            font-size: 0.75em;
-        }
-
-        /* Complete typography pass: the printed list uses one slab-serif system. */
-        body,
-        .nav-links a,
-        .cta-button,
-        .map-button,
-        .mobile-action,
-        .price-name,
-        .price-value,
-        .contact-info,
-        .hours-table,
-        .team-card h3,
-        .team-role,
-        .footer-links a,
-        footer p,
-        .modal-content p {
-            font-family: var(--font-copy);
-        }
-
-        .logo,
-        .est-part,
-        .hero h1,
-        .hero .subtitle,
-        section h2,
-        .price-list h3,
-        .contact-card h3,
-        footer h3 {
-            font-family: var(--font-brand);
-        }
-
-        .price-description {
-            font-family: var(--font-italic);
-            font-style: italic;
-            font-weight: 500;
-            letter-spacing: 0.015em;
-        }
-
-        .price-name {
-            font-weight: 650;
-            letter-spacing: 0.012em;
-        }
-
-        .price-value {
-            font-weight: 700;
-            letter-spacing: 0.02em;
-        }
-
-        .special-package .price-name {
-            color: var(--primary-gold);
-            font-weight: 750;
-        }
-
-        .contact-info,
-        .hours-table,
-        .team-role,
-        .footer-links a,
-        footer p,
-        .modal-content p {
-            letter-spacing: 0.015em;
-        }
-
-        .hero {
-            max-width: none;
-            min-height: clamp(590px, 78svh, 790px);
-            margin: 0 auto 2rem;
-            padding: clamp(4rem, 8vh, 7rem) 2rem;
-            border-width: 0 0 3px;
-            background-image:
-                radial-gradient(circle at 50% 43%, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.42) 48%, rgba(0, 0, 0, 0.72) 100%),
-                linear-gradient(180deg, rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.62)),
-                url("Barber_Background.png");
-            background-size: cover;
-            background-position: center 48%;
-        }
-
-        .hero::before {
-            inset: clamp(12px, 1.8vw, 24px);
-            border-width: 2px;
-            box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.16);
-        }
-
-        .logo-container {
-            padding: clamp(1.2rem, 3vw, 2.4rem);
-            border-radius: 2px;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(0, 0, 0, 0.64) 0,
-                rgba(0, 0, 0, 0.44) 48%,
-                rgba(0, 0, 0, 0) 78%
-            );
-        }
-
-        .reviews-badge {
-            margin-top: 1.35rem;
-            padding: 0.6rem 0;
-        }
-
-        .reviews-badge img {
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.75));
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                min-height: clamp(570px, calc(100svh - 64px), 740px);
-                margin: 0 0 1rem;
-                padding: 3rem 0.8rem 2.4rem;
-                border-width: 0 0 2px;
-                background-image:
-                    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.22) 0, rgba(0, 0, 0, 0.48) 48%, rgba(0, 0, 0, 0.73) 100%),
-                    linear-gradient(180deg, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.66)),
-                    url("Barber_Background.png");
-                background-position: 48% center;
-            }
-
-            .logo-container {
-                margin-bottom: 1.4rem;
-                padding: 1.4rem 0.15rem 0.8rem;
-            }
-
-            .brand-topline {
-                grid-template-columns: minmax(20px, 1fr) auto 58px auto minmax(20px, 1fr);
-                gap: clamp(0.25rem, 1.7vw, 0.6rem);
-                margin-bottom: -0.2rem;
-            }
-
-            .brand-scissors {
-                width: 58px;
-                height: 58px;
-                stroke-width: 6.5;
-            }
-
-            .est-part {
-                font-size: clamp(0.72rem, 3.5vw, 1rem);
-                letter-spacing: 0.04em;
-            }
-
-            .brand-flourish {
-                stroke-width: 4;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.05rem, 11.2vw, 4.1rem);
-                letter-spacing: 0.01em;
-            }
-
-            .brand-location {
-                gap: clamp(0.35rem, 2vw, 0.75rem);
-                margin-top: 0.55rem;
-            }
-
-            .hero .subtitle {
-                font-size: clamp(1rem, 5.4vw, 1.7rem);
-                letter-spacing: 0.08em;
-            }
-
-            .brand-line {
-                height: 8px;
-                border-top-width: 1px;
-            }
-
-            .stars {
-                margin: 0.5rem 0 1rem;
-                font-size: clamp(1rem, 5vw, 1.35rem);
-            }
-
-            section h2 {
-                gap: 0.6rem;
-                font-size: clamp(1.05rem, 5vw, 1.4rem);
-                letter-spacing: 0.05em;
-            }
-
-            section h2::before,
-            section h2::after {
-                min-width: 18px;
-            }
-
-            .price-list h3 {
-                color: var(--primary-gold);
-            }
-        }
-
-        @media (max-width: 360px) {
-            .brand-topline {
-                grid-template-columns: 24px auto 52px auto 24px;
-            }
-
-            .brand-flourish {
-                opacity: 0.8;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.85rem, 10.8vw, 2.4rem);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Barber Shop Adelsdorf – Herrenfriseur &amp; Bartpflege am Marktplatz</title>
+  <meta name="description" content="Barber Shop Adelsdorf am Marktplatz 1: Herrenhaarschnitte, Bartpflege und Nassrasur vom Friseurmeister. Seit 2019. Termin unter 09195 / 5074412.">
+  <meta name="theme-color" content="#0a0908">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://barbershop-adelsdorf.de/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Barber Shop Adelsdorf">
+  <meta property="og:title" content="Barber Shop Adelsdorf – Herrenfriseur &amp; Bartpflege">
+  <meta property="og:description" content="Haarschnitt, Bart und Nassrasur vom Friseurmeister – mitten am Marktplatz in Adelsdorf.">
+  <meta property="og:url" content="https://barbershop-adelsdorf.de/">
+  <meta property="og:image" content="https://barbershop-adelsdorf.de/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/roboto-slab-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/salon-fassade.jpg" as="image" media="(min-width: 701px)">
+  <link rel="preload" href="assets/img/salon-fassade-m.jpg" as="image" media="(max-width: 700px)">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Barber Shop Adelsdorf",
+    "description": "Herrenfriseur und Barbershop – Haarschnitt, Bartpflege und Nassrasur vom Friseurmeister.",
+    "url": "https://barbershop-adelsdorf.de/",
+    "image": "https://barbershop-adelsdorf.de/assets/img/og-image.jpg",
+    "telephone": "+49 9195 5074412",
+    "priceRange": "3 € – 67 €",
+    "foundingDate": "2019",
+    "founder": { "@type": "Person", "name": "Ahmad Almahmoud", "jobTitle": "Friseurmeister" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Marktplatz 1",
+      "postalCode": "91325",
+      "addressLocality": "Adelsdorf",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 49.7148062, "longitude": 10.8944612 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/barbershop.adelsdorf/"]
+  }
+  </script>
 </head>
 <body>
-    <nav aria-label="Hauptnavigation">
-        <div class="nav-container">
-            <a href="#top" class="logo">BARBER SHOP <span>ADELSDORF</span></a>
-            <button class="mobile-menu-btn" type="button" onclick="toggleMenu()" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#preisliste">PREISLISTE</a></li>
-				<li><a href="#team">UNSER TEAM</a></li>
-                <li><a href="#kontakt">KONTAKT</a></li>
-                <li><a href="#oeffnungszeiten">ÖFFNUNGSZEITEN</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <section class="hero" id="top">
-        <div class="hero-content">
-            <div class="logo-container" aria-label="Barber Shop Adelsdorf, gegründet 2019">
-                <div class="brand-topline" aria-hidden="true">
-                    <svg class="brand-flourish brand-flourish-left" viewBox="0 0 180 55">
-                        <path d="M174 39C128 57 76 52 45 35C19 21 5 31 11 43C17 54 39 44 34 25C29 6 6 6 4 26" />
-                    </svg>
-                    <span class="est-part">EST.</span>
-                    <svg class="brand-scissors" viewBox="0 0 120 120">
-                        <path d="M55 53L25 9L17 4L20 14L49 61" />
-                        <path d="M65 53L95 9L103 4L100 14L71 61" />
-                        <path d="M52 58L35 82" />
-                        <path d="M68 58L85 82" />
-                        <circle cx="28" cy="91" r="16" />
-                        <circle cx="92" cy="91" r="16" />
-                        <circle class="scissor-pivot" cx="60" cy="53" r="3.5" />
-                    </svg>
-                    <span class="est-part">2019</span>
-                    <svg class="brand-flourish brand-flourish-right" viewBox="0 0 180 55">
-                        <path d="M174 39C128 57 76 52 45 35C19 21 5 31 11 43C17 54 39 44 34 25C29 6 6 6 4 26" />
-                    </svg>
-                </div>
-                <h1>BARBER SHOP</h1>
-                <div class="brand-location" aria-hidden="true">
-                    <span class="brand-line"></span>
-                    <div class="subtitle">ADELSDORF</div>
-                    <span class="brand-line"></span>
-                </div>
-                <div class="stars" aria-hidden="true">★★★★★</div>
-            </div>
-            <a href="tel:091955074412" class="cta-button">JETZT TERMIN VEREINBAREN</a>
-            
-            <div class="reviews-badge">
-                <img src="google_bewertung_uebersicht.png" alt="Google Bewertungen - Barbershop Adelsdorf" width="1536" height="1024" loading="lazy" decoding="async">
-            </div>
-        </div>
-    </section>
+  <!-- SVG-Symbole (einmal definiert, mehrfach verwendet) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-scissors" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27.5 40.5 L50 5.5 L46.5 18 L35 37" stroke-width="3.2"/>
+        <path d="M36.5 40.5 L14 5.5 L17.5 18 L29 37" stroke-width="3.2"/>
+        <circle cx="22" cy="50" r="8" stroke-width="3.4"/>
+        <circle cx="42" cy="50" r="8" stroke-width="3.4"/>
+        <circle cx="32" cy="31.5" r="1.8" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="i-corner" viewBox="0 0 46 46" fill="none" stroke="currentColor">
+        <path d="M2 20 A18 18 0 0 0 20 2" stroke-width="2"/>
+        <path d="M9 34 V19 Q9 9 19 9 H34" stroke-width="1.2"/>
+        <circle cx="6" cy="6" r="2.2" fill="currentColor" stroke="none"/>
+        <circle cx="34" cy="9" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="9" cy="34" r="1.4" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="i-flourish" viewBox="0 0 180 55" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+        <path d="M176 38C130 56 78 51 46 35C20 21 6 31 12 43C18 54 40 44 35 25C30 6 7 6 5 26"/>
+      </symbol>
+      <symbol id="i-swash" viewBox="0 0 200 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M198 9C140 14 70 14 26 8.5C11 6.5 4 11 8 15C12 19 19 12 13 6.5"/>
+      </symbol>
+      <symbol id="i-divider" viewBox="0 0 180 18" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M2 9 H72 M108 9 H178"/>
+        <path d="M90 2 L97 9 L90 16 L83 9 Z" fill="currentColor"/>
+        <circle cx="77" cy="9" r="1.6" fill="currentColor" stroke="none"/>
+        <circle cx="103" cy="9" r="1.6" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8l3 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.6l-6.5 3.9 1.7-7.3L1.6 9.3 9 8.7z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 19h36M15 5v9M33 5v9"/><path d="M17 30l5 5 9-10" stroke-width="2.4"/></symbol>
+      <symbol id="i-medal" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="24" cy="18" r="12"/><circle cx="24" cy="18" r="7" stroke-width="1.2"/><path d="M16 27l-4 16 7-3 4 6 1-9M32 27l4 16-7-3-4 6-1-9"/></symbol>
+      <symbol id="i-shop" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 20v22h36V20"/><path d="M4 20l4-12h32l4 12z"/><path d="M19 42V30h10v12"/><path d="M10 8l5 12M20 8l2 12M28 8l-2 12M38 8l-5 12" stroke-width="1.4"/></symbol>
+    </defs>
+  </svg>
 
-    <section id="preisliste">
-        <h2>PREISLISTE</h2>
-        
-        <div class="price-list">
-            <h3>UNSERE LEISTUNGEN</h3>
-            
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Schneiden & Stylen</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">21,—</div>
-            </div>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Waschen, Schneiden & Stylen</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">23,—</div>
-            </div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand-mini" href="#top" aria-label="Barber Shop Adelsdorf – zum Seitenanfang">
+        <svg aria-hidden="true"><use href="#i-scissors"/></svg>
+        <span class="brand-mini__text">
+          <span class="brand-mini__name">Barber Shop</span>
+          <span class="brand-mini__place">Adelsdorf</span>
+        </span>
+      </a>
 
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Bart</div>
-                    <div class="price-description">trimmen, konturieren und stylen</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">18,—</div>
-            </div>
+      <nav class="nav" id="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list">
+          <li><a href="#preise">Preise</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#bewertungen">Bewertungen</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a class="btn nav__phone" href="tel:+4991955074412">
+          <svg aria-hidden="true"><use href="#i-phone"/></svg>09195 / 5074412
+        </a>
+      </nav>
 
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Nassrasur</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">18,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Maschinenschnitt</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">17,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Kinder bis 13 Jahre</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">17,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Dauerwelle</div>
-                    <div class="price-description">mit Haarschnitt, stylen und Pflege</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">67,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Färben</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">ab 35,—</div>
-            </div>
-
-            <div class="price-item special-package">
-                <div class="price-left">
-                    <div class="price-name">Glanz-Paket</div>
-                    <div class="price-description">Haarschnitt, stylen und Bart trimmen/konturieren</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">33,—</div>
-            </div>
-
-            <div class="price-item special-package">
-                <div class="price-left">
-                    <div class="price-name">Deluxe-Paket Komplett</div>
-                    <div class="price-description">Haarschnitt & Styling, Bart (Nassrasur oder trimmen und konturieren), Augenbrauen mit Faden zupfen, Ohr- & Nasenhaar-Waxing</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">46,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Augenbrauen zupfen</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">9,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Ohr- oder Nasenhaar-Waxing</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">3,—</div>
-            </div>
-
-            <div class="price-item">
-                <div class="price-left">
-                    <div class="price-name">Hair Design</div>
-                </div>
-                <div class="price-dots"></div>
-                <div class="price-value">3,—</div>
-            </div>
-        </div>
-    </section>
-
-<section id="team">
-        <h2>UNSER TEAM</h2>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="Barber_1.png" alt="Ahmad - Besitzer & Friseur" width="1024" height="1024" loading="lazy" decoding="async">
-                </div>
-                <h3>Ahmad</h3>
-                <p class="team-role">Besitzer - Friseur</p>
-            </div>
-
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="Barber_2.png" alt="Ahmad - Friseur" width="1024" height="1024" loading="lazy" decoding="async">
-                </div>
-                <h3>Ahmad</h3>
-                <p class="team-role">Friseur</p>
-            </div>
-        </div>
-    </section>
-
-<section class="review-carousel-section" aria-label="Bewertungen">
-<h2>KUNDENBEWERTUNGEN</h2>
-  <div class="review-carousel" id="reviewCarousel">
-    <button class="rc-btn rc-prev" type="button" aria-label="Vorheriges Bild">
-      &#10094;
-    </button>
-
-    <div class="rc-viewport" id="rcViewport">
-      <div class="rc-track" id="rcTrack">
-        <div class="rc-slide"><img src="bewertung_1.png" alt="Kundenbewertung 1" width="750" height="350" loading="lazy" decoding="async"></div>
-        <div class="rc-slide"><img src="bewertung_2.png" alt="Kundenbewertung 2" width="750" height="350" loading="lazy" decoding="async"></div>
-        <div class="rc-slide"><img src="bewertung_3.png" alt="Kundenbewertung 3" width="750" height="350" loading="lazy" decoding="async"></div>
-        <div class="rc-slide"><img src="bewertung_4.png" alt="Kundenbewertung 4" width="750" height="350" loading="lazy" decoding="async"></div>
-        <div class="rc-slide"><img src="bewertung_5.png" alt="Kundenbewertung 5" width="750" height="350" loading="lazy" decoding="async"></div>
-        <div class="rc-slide"><img src="bewertung_6.png" alt="Kundenbewertung 6" width="750" height="350" loading="lazy" decoding="async"></div>
-      </div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen"><span></span></button>
     </div>
+  </header>
 
-    <button class="rc-btn rc-next" type="button" aria-label="Nächstes Bild">
-      &#10095;
-    </button>
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-label="Willkommen">
+      <div class="hero__bg" role="img" aria-label="Ladenfront des Barber Shop Adelsdorf am Marktplatz"></div>
+
+      <div class="hero__inner">
+        <div class="frame hero__frame">
+          <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+
+          <div class="lockup">
+            <div class="lockup__top" aria-hidden="true">
+              <svg class="lockup__flourish" viewBox="0 0 180 55"><use href="#i-flourish"/></svg>
+              <span class="lockup__est">EST.</span>
+              <svg class="lockup__scissors" viewBox="0 0 64 64"><use href="#i-scissors"/></svg>
+              <span class="lockup__est">2019</span>
+              <svg class="lockup__flourish lockup__flourish--r" viewBox="0 0 180 55"><use href="#i-flourish"/></svg>
+            </div>
+            <h1 class="lockup__name">Barber Shop <span class="sr-only">Adelsdorf – Herrenfriseur seit 2019</span></h1>
+            <div class="lockup__place" aria-hidden="true">
+              <span class="lockup__line"><svg viewBox="0 0 200 20" preserveAspectRatio="none"><use href="#i-swash"/></svg></span>
+              <span>Adelsdorf</span>
+              <span class="lockup__line lockup__line--r"><svg viewBox="0 0 200 20" preserveAspectRatio="none"><use href="#i-swash"/></svg></span>
+            </div>
+            <div class="lockup__stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+              <svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+            </div>
+          </div>
+
+          <p class="hero__owner">Inh. Ahmad Almahmoud <span class="hero__title">– Friseurmeister –</span></p>
+          <p class="hero__lead">Haarschnitt, Bartpflege und klassische Nassrasur – mit Ruhe, Präzision und Handwerk. Mitten am Marktplatz.</p>
+
+          <div class="hero__actions">
+            <a class="btn" href="tel:+4991955074412">
+              <svg aria-hidden="true"><use href="#i-phone"/></svg>Termin vereinbaren
+            </a>
+            <a class="btn btn--ghost" href="#preise">Zur Preisliste</a>
+          </div>
+
+          <p class="status" hidden><span class="status__dot" aria-hidden="true"></span><span class="status__text"></span></p>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#preise" aria-label="Weiter zur Preisliste"></a>
+    </section>
+
+    <div class="pole" aria-hidden="true"></div>
+
+    <!-- ============ PREISLISTE ============ -->
+    <section class="section" id="preise" aria-labelledby="preise-title">
+      <div class="wrap">
+        <header class="heading reveal">
+          <span class="heading__eyebrow">Leistungen</span>
+          <h2 id="preise-title">Preisliste</h2>
+          <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+        </header>
+
+        <div class="frame menu reveal">
+          <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+
+          <div class="menu__cols">
+            <div class="menu__group">
+              <h3>Haare</h3>
+              <ul class="price-list">
+                <li class="price"><div class="price__row"><span class="price__name">Schneiden &amp; Stylen</span><span class="price__dots"></span><span class="price__value">21,– €</span></div></li>
+                <li class="price"><div class="price__row"><span class="price__name">Waschen, Schneiden &amp; Stylen</span><span class="price__dots"></span><span class="price__value">23,– €</span></div></li>
+                <li class="price"><div class="price__row"><span class="price__name">Maschinenschnitt</span><span class="price__dots"></span><span class="price__value">17,– €</span></div></li>
+                <li class="price"><div class="price__row"><span class="price__name">Kinder bis 13 Jahre</span><span class="price__dots"></span><span class="price__value">17,– €</span></div></li>
+                <li class="price">
+                  <div class="price__row"><span class="price__name">Dauerwelle</span><span class="price__dots"></span><span class="price__value">67,– €</span></div>
+                  <p class="price__desc">mit Haarschnitt, Styling und Pflege</p>
+                </li>
+                <li class="price"><div class="price__row"><span class="price__name">Färben</span><span class="price__dots"></span><span class="price__value"><small>ab</small>35,– €</span></div></li>
+                <li class="price"><div class="price__row"><span class="price__name">Hair Design</span><span class="price__dots"></span><span class="price__value">3,– €</span></div></li>
+              </ul>
+            </div>
+
+            <div class="menu__group">
+              <h3>Bart &amp; Pflege</h3>
+              <ul class="price-list">
+                <li class="price">
+                  <div class="price__row"><span class="price__name">Bart</span><span class="price__dots"></span><span class="price__value">18,– €</span></div>
+                  <p class="price__desc">trimmen, konturieren und stylen</p>
+                </li>
+                <li class="price"><div class="price__row"><span class="price__name">Nassrasur</span><span class="price__dots"></span><span class="price__value">18,– €</span></div></li>
+                <li class="price">
+                  <div class="price__row"><span class="price__name">Augenbrauen zupfen</span><span class="price__dots"></span><span class="price__value">9,– €</span></div>
+                  <p class="price__desc">mit Faden</p>
+                </li>
+                <li class="price"><div class="price__row"><span class="price__name">Ohr- oder Nasenhaar-Waxing</span><span class="price__dots"></span><span class="price__value">3,– €</span></div></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="packages">
+            <article class="package">
+              <span class="package__tag">Paket</span>
+              <div class="price__row"><h3 class="price__name">Glanz-Paket</h3><span class="price__dots"></span><span class="price__value">33,– €</span></div>
+              <p class="price__desc">Haarschnitt, Styling und Bart trimmen &amp; konturieren</p>
+            </article>
+            <article class="package">
+              <span class="package__tag">Komplett</span>
+              <div class="price__row"><h3 class="price__name">Deluxe-Paket</h3><span class="price__dots"></span><span class="price__value">46,– €</span></div>
+              <p class="price__desc">Haarschnitt &amp; Styling, Bart (Nassrasur oder trimmen &amp; konturieren), Augenbrauen mit Faden zupfen, Ohr- &amp; Nasenhaar-Waxing</p>
+            </article>
+          </div>
+
+          <p class="menu__note">Alle Preise in Euro inklusive gesetzlicher Mehrwertsteuer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TREUEKARTE ============ -->
+    <section class="loyalty" aria-labelledby="treue-title">
+      <div class="wrap reveal">
+        <div class="stamp" aria-hidden="true">
+          <div><b>10 €</b><span>Treuebonus</span></div>
+        </div>
+        <div>
+          <h2 id="treue-title">Sichern Sie sich <em>10 € Treuebonus</em></h2>
+          <p>Fragen Sie bei Ihrem nächsten Besuch einfach nach unserer Treuekarte – wir erklären Ihnen gerne, wie es funktioniert.</p>
+        </div>
+        <a class="btn btn--ghost" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Jetzt anrufen</a>
+      </div>
+    </section>
+
+    <!-- ============ ÜBER UNS ============ -->
+    <section class="section" id="ueber-uns" aria-labelledby="about-title">
+      <div class="wrap about">
+        <div class="about__text reveal">
+          <header class="heading">
+            <span class="heading__eyebrow">Über uns</span>
+            <h2 id="about-title">Handwerk am Marktplatz</h2>
+          </header>
+          <p>Seit 2019 ist der Barber Shop Adelsdorf die Adresse für Herren, die Wert auf einen sauberen Schnitt und einen gepflegten Bart legen. Unser Laden liegt mitten im Ort – direkt am Marktplatz.</p>
+          <p>Inhaber Ahmad Almahmoud ist Friseurmeister. Bei uns bekommen Sie keinen Schnitt von der Stange: Wir hören zu, beraten ehrlich und nehmen uns Zeit – vom klassischen Herrenschnitt über Konturen und Bartpflege bis zur traditionellen Nassrasur.</p>
+          <p class="about__sign">Ahmad Almahmoud<span>Inhaber &amp; Friseurmeister</span></p>
+        </div>
+
+        <div class="frame facts reveal" style="--d:.1s">
+          <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+          <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+          <ul class="facts__list">
+          <li class="fact">
+            <svg aria-hidden="true"><use href="#i-calendar"/></svg>
+            <div><b>Seit 2019</b><span>in Adelsdorf für Sie da</span></div>
+          </li>
+          <li class="fact">
+            <svg aria-hidden="true"><use href="#i-medal"/></svg>
+            <div><b>Meisterbetrieb</b><span>Friseurhandwerk mit Meisterbrief</span></div>
+          </li>
+          <li class="fact">
+            <svg aria-hidden="true"><use href="#i-shop"/></svg>
+            <div><b>Marktplatz 1</b><span>zentral in 91325 Adelsdorf</span></div>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="pole" aria-hidden="true"></div>
+
+    <!-- ============ BEWERTUNGEN ============ -->
+    <section class="section section--alt" id="bewertungen" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <header class="heading reveal">
+          <span class="heading__eyebrow">Kundenstimmen</span>
+          <h2 id="reviews-title">Das sagen unsere Kunden</h2>
+          <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+        </header>
+
+        <div class="reviews">
+          <figure class="review reveal">
+            <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+            <blockquote><p>Der Barbershop überzeugt mit einer freundlichen Atmosphäre und professionellem Service. Der Chef und die Mitarbeiter nehmen sich Zeit, hören genau zu und liefern perfekte Ergebnisse.</p></blockquote>
+            <figcaption>Heiko J.</figcaption>
+          </figure>
+          <figure class="review reveal" style="--d:.08s">
+            <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+            <blockquote><p>Von mir glatte 5 Sterne. Sehr freundliches Personal. Die Wünsche des Kunden werden berücksichtigt. Ich komme auf jeden Fall wieder.</p></blockquote>
+            <figcaption>Silvio D.</figcaption>
+          </figure>
+          <figure class="review reveal" style="--d:.16s">
+            <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+            <blockquote><p>Das ist der beste Herrenfriseur, den ich kenne. Immer wieder gern.</p></blockquote>
+            <figcaption>Christian B.</figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+            <blockquote><p>Bester Schnitt und Bart-Tuning ohne unnützes Blabla. […] Sehr flexibel in der Terminierung – mein Vater und ich kommen seit Jahren gerne.</p></blockquote>
+            <figcaption>Jascha D.</figcaption>
+          </figure>
+          <figure class="review reveal" style="--d:.08s">
+            <div class="review__stars" role="img" aria-label="5 von 5 Sternen"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div>
+            <blockquote><p>Suuuper!!! Einfach Spitze! Danke sagt Werner, der mit dem Knopf am Hals!</p></blockquote>
+            <figcaption>Werner S.</figcaption>
+          </figure>
+        </div>
+
+        <div class="reviews__foot reveal">
+          <div class="reviews__actions">
+            <a class="btn" href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-star"/></svg>Alle Bewertungen auf Google
+            </a>
+          </div>
+          <p class="reviews__note">Ihre Meinung ist uns wichtig – wir freuen uns über Ihre Bewertung auf Google. Bei den gezeigten Stimmen handelt es sich um Auszüge aus öffentlich auf Google abgegebenen Bewertungen (teilweise gekürzt, Namen abgekürzt). Wir haben nicht überprüft, ob die Verfasser unsere Leistungen tatsächlich in Anspruch genommen haben.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="pole" aria-hidden="true"></div>
+
+    <!-- ============ KONTAKT ============ -->
+    <section class="section" id="kontakt" aria-labelledby="kontakt-title">
+      <div class="wrap">
+        <header class="heading reveal">
+          <span class="heading__eyebrow">Besuchen Sie uns</span>
+          <h2 id="kontakt-title">Öffnungszeiten &amp; Kontakt</h2>
+          <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+        </header>
+
+        <div class="contact">
+          <div class="frame card reveal" id="oeffnungszeiten">
+            <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+            <h3>Öffnungszeiten</h3>
+            <table class="hours">
+              <caption class="sr-only">Öffnungszeiten des Barber Shop Adelsdorf</caption>
+              <tbody>
+                <tr data-days="1 2 3 4 5"><th scope="row">Montag – Freitag</th><td>10:00 – 19:00 Uhr</td></tr>
+                <tr data-days="6"><th scope="row">Samstag</th><td>09:00 – 16:00 Uhr</td></tr>
+                <tr data-days="0"><th scope="row">Sonntag</th><td class="closed">geschlossen</td></tr>
+              </tbody>
+            </table>
+            <p class="hours-note">Termine vereinbaren Sie am einfachsten telefonisch. An Feiertagen können die Öffnungszeiten abweichen.</p>
+          </div>
+
+          <div class="frame card reveal" style="--d:.1s">
+            <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+            <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+            <h3>Kontakt</h3>
+            <ul class="info-list">
+              <li>
+                <svg aria-hidden="true"><use href="#i-phone"/></svg>
+                <div><small>Telefon</small><a class="big" href="tel:+4991955074412">09195 / 5074412</a></div>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#i-pin"/></svg>
+                <div><small>Adresse</small><address style="font-style:normal">Barber Shop Adelsdorf<br>Marktplatz 1<br>91325 Adelsdorf</address></div>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#i-camera"/></svg>
+                <div><small>Instagram</small><a href="https://www.instagram.com/barbershop.adelsdorf/" target="_blank" rel="noopener noreferrer">@barbershop.adelsdorf</a></div>
+              </li>
+            </ul>
+            <div class="contact__actions">
+              <a class="btn" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
+              <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barbershop+Adelsdorf,+Marktplatz+1,+91325+Adelsdorf" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-route"/></svg>Route planen</a>
+            </div>
+            <p class="ext-note">Links zu Google Maps und Instagram öffnen externe Seiten. Erst beim Anklicken werden Daten an den jeweiligen Anbieter übertragen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__brand">
+        <svg aria-hidden="true"><use href="#i-scissors"/></svg>
+        <p class="footer__name">Barber Shop <span>Adelsdorf</span></p>
+      </div>
+      <p class="footer__meta">Marktplatz 1 · 91325 Adelsdorf · <a href="tel:+4991955074412">09195 / 5074412</a></p>
+      <ul class="footer__links">
+        <li><a href="#preise">Preise</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap">© <span data-year>2026</span> Barber Shop Adelsdorf · Webdesign: <a href="https://noahblesch.de" target="_blank" rel="noopener noreferrer">Noah Blesch</a></div>
+    </div>
+  </footer>
+
+  <div class="quickbar" aria-label="Schnellzugriff">
+    <a class="btn" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
+    <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barbershop+Adelsdorf,+Marktplatz+1,+91325+Adelsdorf" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-route"/></svg>Route</a>
   </div>
 
-  <div class="rc-dots" id="rcDots" aria-label="Slider Navigation"></div>
-</section>
-
-<style>
-  .review-carousel-section{
-    margin: 2.5rem auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .review-carousel-section h2{
-    width: 100%;
-  }
-  
-  .review-carousel{
-    position: relative;
-    width: min(980px, 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .rc-viewport{
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .rc-track{
-    display: flex;
-    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform;
-    touch-action: pan-y;
-  }
-
-  .rc-slide{
-    flex: 0 0 100%;
-    padding: 0.75rem;
-  }
-
-  .rc-slide img{
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.18);
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-  .rc-btn{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid rgba(201, 169, 97, 0.75);
-    cursor: pointer;
-    background: rgba(0,0,0,.92);
-    color: #c9a961;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    transition: transform .2s ease, background .2s ease;
-  }
-  .rc-btn:hover{
-    background: #c9a961;
-    color: #000;
-    transform: translateY(-50%) scale(1.06);
-  }
-  .rc-prev{ left: -10px; }
-  .rc-next{ right: -10px; }
-
-  .rc-dots{
-  margin-top: 0.75rem;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-  .rc-dot{
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  border: none;
-  background: rgba(201, 169, 97, 0.35); /* Gold, inaktiv */
-  cursor: pointer;
-  transition: width .2s ease, background .2s ease;
-}
-
-  .rc-dot.is-active{
-  width: 26px;
-  background: #C9A961; /* Gold, aktiv */
-}
-
-  @media (min-width: 900px){
-    .rc-slide{ flex: 0 0 33.333%; }
-  }
-
-  @media (min-width: 640px) and (max-width: 899px){
-    .rc-slide{ flex: 0 0 50%; }
-  }
-
-  @media (max-width: 639px){
-    .review-carousel-section {
-      margin: 0 auto;
-    }
-    .review-carousel {
-      width: 100%;
-    }
-    .rc-slide {
-      padding: 0.35rem 2.6rem;
-    }
-    .rc-btn{
-      width: 44px;
-      height: 44px;
-      font-size: 1.2rem;
-    }
-    .rc-prev{ left: 0; }
-    .rc-next{ right: 0; }
-    .rc-slide img {
-        width: 100%;
-        max-width: 300px;
-    }
-    .rc-dots {
-      gap: 8px;
-      margin-top: 1rem;
-    }
-    .rc-dot {
-      width: 12px;
-      height: 12px;
-    }
-  }
-</style>
-
-<script>
-  (function(){
-    const track = document.getElementById('rcTrack');
-    const viewport = document.getElementById('rcViewport');
-    const prevBtn = document.querySelector('.rc-prev');
-    const nextBtn = document.querySelector('.rc-next');
-    const dotsWrap = document.getElementById('rcDots');
-
-    const slides = Array.from(track.querySelectorAll('.rc-slide'));
-    const total = slides.length;
-
-    let perView = 1;          
-    let index = 0;            
-    let maxIndex = 0;
-    let autoTimer = null;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-
-    let isPointerDown = false;
-    let startX = 0;
-    let currentX = 0;
-    let moved = false;
-
-    function calcPerView(){
-      const w = window.innerWidth;
-      if (w >= 900) return 3;
-      if (w >= 640) return 2;
-      return 1;
-    }
-
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-
-    function buildDots(){
-      dotsWrap.innerHTML = '';
-      const groups = Math.ceil(total / perView);
-      for (let i = 0; i < groups; i++){
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'rc-dot' + (i === index ? ' is-active' : '');
-        b.setAttribute('aria-label', 'Gehe zu Slide ' + (i + 1));
-        b.addEventListener('click', () => goTo(i, true));
-        dotsWrap.appendChild(b);
-      }
-    }
-
-    function updateMaxIndex(){
-      maxIndex = Math.max(0, Math.ceil(total / perView) - 1);
-      index = clamp(index, 0, maxIndex);
-    }
-
-    function slideWidth(){
-      return slides[0].getBoundingClientRect().width;
-    }
-
-    function updateTransform(){
-      const offset = index * perView * slideWidth();
-      track.style.transform = `translateX(${-offset}px)`;
-
-      const dots = Array.from(dotsWrap.querySelectorAll('.rc-dot'));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
-    }
-
-    function goTo(i, userInitiated=false){
-      index = clamp(i, 0, maxIndex);
-      updateTransform();
-      if (userInitiated) restartAuto();
-    }
-
-    function next(){
-      if (index >= maxIndex) index = 0;
-      else index++;
-      updateTransform();
-    }
-
-    function prev(){
-      if (index <= 0) index = maxIndex;
-      else index--;
-      updateTransform();
-    }
-
-    function startAuto(){
-      stopAuto();
-      if (reduceMotion || document.hidden) return;
-      autoTimer = setInterval(next, 5000);
-    }
-
-    function stopAuto(){
-      if (autoTimer) clearInterval(autoTimer);
-      autoTimer = null;
-    }
-
-    function restartAuto(){
-      startAuto();
-    }
-
-    prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
-    nextBtn.addEventListener('click', () => { next(); restartAuto(); });
-
-    viewport.addEventListener('mouseenter', stopAuto);
-    viewport.addEventListener('mouseleave', startAuto);
-
-    viewport.addEventListener('pointerdown', (e) => {
-      isPointerDown = true;
-      startX = e.clientX;
-      currentX = startX;
-      moved = false;
-      stopAuto();
-      viewport.setPointerCapture(e.pointerId);
-    });
-
-    viewport.addEventListener('pointermove', (e) => {
-      if (!isPointerDown) return;
-      currentX = e.clientX;
-      const dx = currentX - startX;
-      if (Math.abs(dx) > 6) moved = true;
-    });
-
-    viewport.addEventListener('pointerup', (e) => {
-      if (!isPointerDown) return;
-      isPointerDown = false;
-      const dx = currentX - startX;
-      const threshold = Math.max(40, viewport.clientWidth * 0.08);
-
-      if (moved && dx > threshold) prev();
-      else if (moved && dx < -threshold) next();
-
-      restartAuto();
-      try { viewport.releasePointerCapture(e.pointerId); } catch(_) {}
-    });
-
-    viewport.addEventListener('pointercancel', () => {
-      isPointerDown = false;
-      restartAuto();
-    });
-
-    function refresh(){
-      perView = calcPerView();
-      updateMaxIndex();
-      buildDots();
-      requestAnimationFrame(updateTransform);
-    }
-
-    window.addEventListener('resize', () => {
-      clearTimeout(window.__rcResizeT);
-      window.__rcResizeT = setTimeout(refresh, 120);
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) stopAuto();
-      else startAuto();
-    });
-
-    refresh();
-    startAuto();
-  })();
-</script>
-
-    <section id="kontakt">
-        <h2>KONTAKT & STANDORT</h2>
-        
-        <div class="contact-grid">
-            <div class="contact-card" id="oeffnungszeiten">
-                <h3>ÖFFNUNGSZEITEN</h3>
-                <table class="hours-table">
-                    <tr>
-                        <td>Montag — Freitag</td>
-                        <td>10:00 — 19:00</td>
-                    </tr>
-                    <tr>
-                        <td>Samstag</td>
-                        <td>09:00 — 16:00</td>
-                    </tr>
-                    <tr>
-                        <td>Sonntag</td>
-                        <td>Geschlossen</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="contact-card">
-                <h3>KONTAKTINFORMATIONEN</h3>
-                <div class="contact-info">
-                    <p><strong>Adresse:</strong><br>
-                    Marktplatz 1<br>
-                    91325 Adelsdorf</p>
-                    
-                    <p><strong>Telefon:</strong><br>
-                    <a href="tel:091955074412" style="color: var(--primary-gold); text-decoration: none;">09195 / 5074412</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="map-button-container">
-            <a href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" rel="noopener noreferrer" class="map-button">📍 ROUTENPLANUNG MIT GOOGLE MAPS</a>
-        </div>
-    </section>
-
-    <div class="mobile-actions" aria-label="Schnellaktionen">
-        <a class="mobile-action" href="tel:091955074412">ANRUFEN</a>
-        <a class="mobile-action secondary" href="https://www.google.com/maps/place/Barbershop+Adelsdorf/@49.7148063,10.8918864,17z/data=!4m6!3m5!1s0x47a21dcc1e60949b:0xb8b787cfd0a74eab!8m2!3d49.7148062!4d10.8944612!16s%2Fg%2F11h6lq1mkh" target="_blank" rel="noopener noreferrer">ROUTE</a>
-    </div>
-
-    <footer>
-        <h3>BARBERSHOP ADELSDORF</h3>
-        <p>Ihr professioneller Barbershop seit 2019</p>
-        <div class="footer-links">
-            <a href="https://www.instagram.com/barbershop.adelsdorf/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="#" onclick="openModal('impressum'); return false;">Impressum</a>
-            <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutz</a>
-        </div>
-        <p style="margin-top: 2rem;">
-  © 2026 Barbershop Adelsdorf —
-  <a href="https://noahblesch.de"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="color: inherit; text-decoration: underline;">
-    Created by Noah Blesch
-  </a>
-</p>
-    </footer>
-
-    <div id="impressumModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
-        <div class="modal-content">
-            <button class="close" type="button" onclick="closeModal('impressum')" aria-label="Impressum schließen">&times;</button>
-            <h2 id="impressumTitle">Impressum</h2>
-            <p>Hier steht der Impressum-Text, der noch von Ihnen eingefügt werden muss.</p>
-        </div>
-    </div>
-
-    <div id="datenschutzModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="datenschutzTitle">
-        <div class="modal-content">
-            <button class="close" type="button" onclick="closeModal('datenschutz')" aria-label="Datenschutz schließen">&times;</button>
-            <h2 id="datenschutzTitle">Datenschutz</h2>
-            <p>Hier steht die Datenschutzerklärung, die noch von Ihnen eingefügt werden muss.</p>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuButton = document.querySelector('.mobile-menu-btn');
-            const isOpen = navLinks.classList.toggle('active');
-            menuButton.setAttribute('aria-expanded', String(isOpen));
-            menuButton.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
-            menuButton.textContent = isOpen ? '×' : '☰';
-        }
-
-        function openModal(type) {
-            const modal = document.getElementById(type + 'Modal');
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            modal.querySelector('.close').focus();
-        }
-
-        function closeModal(type) {
-            const modal = document.getElementById(type + 'Modal');
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (!href || href === '#') return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-                        block: 'start'
-                    });
-                    const navLinks = document.getElementById('navLinks');
-                    const menuButton = document.querySelector('.mobile-menu-btn');
-                    navLinks.classList.remove('active');
-                    menuButton.setAttribute('aria-expanded', 'false');
-                    menuButton.setAttribute('aria-label', 'Menü öffnen');
-                    menuButton.textContent = '☰';
-                }
-            });
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key !== 'Escape') return;
-
-            document.querySelectorAll('.modal').forEach((modal) => {
-                if (modal.style.display === 'block') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            });
-
-            const navLinks = document.getElementById('navLinks');
-            const menuButton = document.querySelector('.mobile-menu-btn');
-            navLinks.classList.remove('active');
-            menuButton.setAttribute('aria-expanded', 'false');
-            menuButton.setAttribute('aria-label', 'Menü öffnen');
-            menuButton.textContent = '☰';
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                const navLinks = document.getElementById('navLinks');
-                const menuButton = document.querySelector('.mobile-menu-btn');
-                navLinks.classList.remove('active');
-                menuButton.setAttribute('aria-expanded', 'false');
-                menuButton.setAttribute('aria-label', 'Menü öffnen');
-                menuButton.textContent = '☰';
-            }
-        });
-
-        const priceObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animate');
-                    }, index * 100);
-                    priceObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('.price-item').forEach((item) => item.classList.add('animate'));
-        } else {
-            document.querySelectorAll('.price-item').forEach((item) => {
-                priceObserver.observe(item);
-            });
-        }
-    </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
