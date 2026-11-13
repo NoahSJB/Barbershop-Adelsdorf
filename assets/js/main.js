@@ -3,6 +3,15 @@
 (function () {
   "use strict";
 
+  /* ======================================================================
+     ONLINE-TERMINBUCHUNG
+     Hier den Link zum Buchungssystem eintragen, z. B.
+     var BOOKING_URL = "https://www.anbieter.de/barbershop-adelsdorf";
+     Solange der Wert leer ist, werden alle „Online buchen“-Buttons
+     automatisch ausgeblendet und die Telefon-Buttons angezeigt.
+     ====================================================================== */
+  var BOOKING_URL = "";
+
   var doc = document.documentElement;
   doc.classList.add("js");
 
@@ -151,6 +160,25 @@
     }
     status.querySelector(".status__text").innerHTML = text;
     status.hidden = false;
+  }
+
+  /* ---------- Online-Buchung einblenden ---------- */
+  if (/^https:\/\//.test(BOOKING_URL)) {
+    document.querySelectorAll(".js-booking").forEach(function (el) {
+      if (el.tagName === "A") {
+        el.href = BOOKING_URL;
+        el.target = "_blank";
+        el.rel = "noopener noreferrer";
+        el.setAttribute("aria-label", (el.textContent.trim() || "Online buchen") + " (öffnet externe Seite in neuem Tab)");
+      }
+      el.hidden = false;
+    });
+    document.querySelectorAll(".js-no-booking").forEach(function (el) { el.hidden = true; });
+    document.querySelectorAll(".js-phone-cta").forEach(function (el) {
+      el.classList.add("btn--ghost");
+      var label = el.querySelector("span");
+      if (label) label.textContent = "Anrufen";
+    });
   }
 
   /* ---------- Jahr im Footer ---------- */

@@ -95,6 +95,8 @@ body {
 
 img, svg { display: block; max-width: 100%; }
 
+[hidden] { display: none !important; }
+
 a { color: inherit; }
 
 button { font: inherit; color: inherit; }
@@ -786,6 +788,71 @@ button { font: inherit; color: inherit; }
 }
 .fact span { color: var(--muted); font-size: .95rem; }
 
+/* ---------- Team ---------- */
+.section--team { padding-top: 0; }
+.team {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  max-width: 900px;
+  margin-inline: auto;
+}
+.barber { margin: 0; }
+.barber__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-image: var(--grain), radial-gradient(90% 70% at 50% 35%, rgba(201, 161, 74, .14), transparent 70%);
+}
+.barber__photo::before { z-index: 2; }
+.barber__photo .frame__corner { z-index: 3; }
+.barber__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  z-index: 1;
+  filter: saturate(.9) contrast(1.03);
+  transition: transform .8s var(--ease);
+}
+.barber:hover .barber__photo img { transform: scale(1.03); }
+.barber__monogram {
+  font-weight: 900;
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  letter-spacing: .06em;
+  color: var(--gold);
+  opacity: .55;
+}
+.barber__info { text-align: center; padding-top: 1.5rem; }
+.barber__name {
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.barber__role {
+  margin-top: .35rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.barber__text {
+  max-width: 28em;
+  margin: .9rem auto 0;
+  font-family: var(--italic);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.team__cta { display: flex; justify-content: center; margin-top: clamp(2.5rem, 6vw, 3.5rem); }
+
 /* ---------- Bewertungen ---------- */
 .reviews {
   display: grid;
@@ -1157,6 +1224,8 @@ button { font: inherit; color: inherit; }
   .stamp b { font-size: 2.1rem; }
 
   .reviews { grid-template-columns: 1fr; }
+  .team { grid-template-columns: 1fr; max-width: 420px; gap: 2.75rem; }
+  .team__cta .btn { width: 100%; max-width: 360px; }
   .review:last-child:nth-child(odd) { grid-column: auto; }
   .reviews__actions { flex-direction: column; align-items: stretch; width: 100%; }
 
@@ -1168,7 +1237,8 @@ button { font: inherit; color: inherit; }
     inset: auto 0 0 0;
     z-index: 900;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     gap: .5rem;
     padding: .55rem max(.75rem, env(safe-area-inset-left)) calc(.55rem + env(safe-area-inset-bottom)) max(.75rem, env(safe-area-inset-right));
     background: rgba(10, 9, 8, .97);

@@ -99,6 +99,7 @@
       <symbol id="i-calendar" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="10" width="36" height="32" rx="2"/><path d="M6 19h36M15 5v9M33 5v9"/><path d="M17 30l5 5 9-10" stroke-width="2.4"/></symbol>
       <symbol id="i-medal" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="24" cy="18" r="12"/><circle cx="24" cy="18" r="7" stroke-width="1.2"/><path d="M16 27l-4 16 7-3 4 6 1-9M32 27l4 16-7-3-4 6-1-9"/></symbol>
       <symbol id="i-shop" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 20v22h36V20"/><path d="M4 20l4-12h32l4 12z"/><path d="M19 42V30h10v12"/><path d="M10 8l5 12M20 8l2 12M28 8l-2 12M38 8l-5 12" stroke-width="1.4"/></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.5 15l2.5 2.5 4.5-5"/></symbol>
     </defs>
   </svg>
 
@@ -118,10 +119,14 @@
         <ul class="nav__list">
           <li><a href="#preise">Preise</a></li>
           <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#team">Team</a></li>
           <li><a href="#bewertungen">Bewertungen</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
-        <a class="btn nav__phone" href="tel:+4991955074412">
+        <a class="btn nav__phone js-booking" href="#kontakt" hidden>
+          <svg aria-hidden="true"><use href="#i-cal"/></svg>Online buchen
+        </a>
+        <a class="btn nav__phone js-no-booking" href="tel:+4991955074412">
           <svg aria-hidden="true"><use href="#i-phone"/></svg>09195 / 5074412
         </a>
       </nav>
@@ -169,10 +174,13 @@
           <p class="hero__lead">Haarschnitt, Bartpflege und klassische Nassrasur – mit Ruhe, Präzision und Handwerk. Mitten am Marktplatz.</p>
 
           <div class="hero__actions">
-            <a class="btn" href="tel:+4991955074412">
-              <svg aria-hidden="true"><use href="#i-phone"/></svg>Termin vereinbaren
+            <a class="btn js-booking" href="#kontakt" hidden>
+              <svg aria-hidden="true"><use href="#i-cal"/></svg>Online buchen
             </a>
-            <a class="btn btn--ghost" href="#preise">Zur Preisliste</a>
+            <a class="btn js-phone-cta" href="tel:+4991955074412">
+              <svg aria-hidden="true"><use href="#i-phone"/></svg><span>Termin vereinbaren</span>
+            </a>
+            <a class="btn btn--ghost js-no-booking" href="#preise">Zur Preisliste</a>
           </div>
 
           <p class="status" hidden><span class="status__dot" aria-hidden="true"></span><span class="status__text"></span></p>
@@ -299,6 +307,60 @@
       </div>
     </section>
 
+    <!-- ============ TEAM ============
+         Fotos: assets/img/team/barber-1.jpg und barber-2.jpg
+         (Hochformat 4:5, z. B. 1000 × 1250 px, JPG, max. ca. 300 KB).
+         Solange ein Foto fehlt, wird automatisch ein Monogramm angezeigt. -->
+    <section class="section section--team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <header class="heading reveal">
+          <span class="heading__eyebrow">Die Barber</span>
+          <h2 id="team-title">Unser Team</h2>
+          <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+        </header>
+
+        <div class="team">
+          <figure class="barber reveal">
+            <div class="frame barber__photo">
+              <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+              <span class="barber__monogram" aria-hidden="true">AA</span>
+              <img src="assets/img/team/barber-1.jpg" alt="Ahmad Almahmoud, Inhaber und Friseurmeister" width="1000" height="1250" loading="lazy" decoding="async" onerror="this.remove()">
+            </div>
+            <figcaption class="barber__info">
+              <h3 class="barber__name">Ahmad Almahmoud</h3>
+              <p class="barber__role">Inhaber &amp; Friseurmeister</p>
+              <p class="barber__text">Gründer des Barber Shop Adelsdorf. Steht seit 2019 am Marktplatz für saubere Herrenschnitte, präzise Bartkonturen und die klassische Nassrasur.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="barber reveal" style="--d:.1s">
+            <div class="frame barber__photo">
+              <svg class="frame__corner frame__corner--tl" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--tr" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--bl" aria-hidden="true"><use href="#i-corner"/></svg>
+              <svg class="frame__corner frame__corner--br" aria-hidden="true"><use href="#i-corner"/></svg>
+              <!-- TODO: Initialen, Name, Rolle und Text des zweiten Barbers eintragen -->
+              <span class="barber__monogram" aria-hidden="true">B</span>
+              <img src="assets/img/team/barber-2.jpg" alt="Vorname Nachname, Barber" width="1000" height="1250" loading="lazy" decoding="async" onerror="this.remove()">
+            </div>
+            <figcaption class="barber__info">
+              <h3 class="barber__name"><span class="todo">Vorname Nachname</span></h3>
+              <p class="barber__role">Barber</p>
+              <p class="barber__text"><span class="todo">Kurzer Satz zur Person, z.&nbsp;B. Spezialgebiet (Fade, Bart, Styling) oder seit wann im Team.</span></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="team__cta reveal">
+          <a class="btn js-booking" href="#kontakt" hidden><svg aria-hidden="true"><use href="#i-cal"/></svg>Termin bei uns buchen</a>
+          <a class="btn js-no-booking" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Termin vereinbaren</a>
+        </div>
+      </div>
+    </section>
+
     <div class="pole" aria-hidden="true"></div>
 
     <!-- ============ BEWERTUNGEN ============ -->
@@ -375,7 +437,7 @@
                 <tr data-days="0"><th scope="row">Sonntag</th><td class="closed">geschlossen</td></tr>
               </tbody>
             </table>
-            <p class="hours-note">Termine vereinbaren Sie am einfachsten telefonisch. An Feiertagen können die Öffnungszeiten abweichen.</p>
+            <p class="hours-note"><span class="js-no-booking">Termine vereinbaren Sie am einfachsten telefonisch.</span><span class="js-booking" hidden>Termine buchen Sie online oder telefonisch.</span> An Feiertagen können die Öffnungszeiten abweichen.</p>
           </div>
 
           <div class="frame card reveal" style="--d:.1s">
@@ -399,10 +461,11 @@
               </li>
             </ul>
             <div class="contact__actions">
+              <a class="btn js-booking" href="#kontakt" hidden><svg aria-hidden="true"><use href="#i-cal"/></svg>Online buchen</a>
               <a class="btn" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
               <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barbershop+Adelsdorf,+Marktplatz+1,+91325+Adelsdorf" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-route"/></svg>Route planen</a>
             </div>
-            <p class="ext-note">Links zu Google Maps und Instagram öffnen externe Seiten. Erst beim Anklicken werden Daten an den jeweiligen Anbieter übertragen.</p>
+            <p class="ext-note">Links zur Online-Terminbuchung, zu Google Maps und Instagram öffnen externe Seiten in einem neuen Tab. Erst beim Anklicken werden Daten an den jeweiligen Anbieter übertragen.</p>
           </div>
         </div>
       </div>
@@ -418,6 +481,7 @@
       <p class="footer__meta">Marktplatz 1 · 91325 Adelsdorf · <a href="tel:+4991955074412">09195 / 5074412</a></p>
       <ul class="footer__links">
         <li><a href="#preise">Preise</a></li>
+        <li><a href="#team">Team</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="datenschutz.html">Datenschutz</a></li>
@@ -430,7 +494,8 @@
 
   <div class="quickbar" aria-label="Schnellzugriff">
     <a class="btn" href="tel:+4991955074412"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
-    <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barbershop+Adelsdorf,+Marktplatz+1,+91325+Adelsdorf" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-route"/></svg>Route</a>
+    <a class="btn btn--ghost js-booking" href="#kontakt" hidden><svg aria-hidden="true"><use href="#i-cal"/></svg>Buchen</a>
+    <a class="btn btn--ghost js-no-booking" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barbershop+Adelsdorf,+Marktplatz+1,+91325+Adelsdorf" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-route"/></svg>Route</a>
   </div>
 
   <script src="assets/js/main.js" defer></script>
