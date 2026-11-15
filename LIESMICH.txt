@@ -1,23 +1,24 @@
 BARBER SHOP ADELSDORF – WEBSITE
 ===============================
 
-HOCHLADEN (Strato oder IONOS)
+HOCHLADEN (STRATO, Domain barbershop-adelsdorf.de)
 Den INHALT dieses Ordners per SFTP in das Web-Hauptverzeichnis der Domain
-hochladen – inklusive der versteckten Datei ".htaccess"!
+im STRATO-Hosting-Paket hochladen – inklusive der versteckten Datei ".htaccess"!
 (Mac Finder: Cmd + Shift + .  blendet versteckte Dateien ein)
 NICHT hochladen: .git, .gitignore, .DS_Store, LIESMICH.txt
+GitHub ist die Hauptkopie: erst hier ändern + committen, dann zu STRATO hochladen.
 
-VOR DEM LIVESCHALTEN ERLEDIGEN (alles rot markiert auf der Seite)
-1. impressum.html + datenschutz.html: echte E-Mail-Adresse eintragen.
-2. impressum.html: USt-IdNr. eintragen – oder Abschnitt löschen.
-3. datenschutz.html: Hoster (STRATO oder IONOS) und Buchungsanbieter eintragen.
-4. Team: ERLEDIGT – Fotos (assets/img/team/barber-1.jpg = Ahmad,
-   barber-2.jpg = Mohammad, 800 x 1000 px) und Vornamen sind eingebaut.
-   Schriftliche Einwilligung beider Barber zur Foto-Veröffentlichung ablegen.
-5. Online-Buchung: Link in assets/js/main.js bei BOOKING_URL eintragen.
-6. Falls die Domain NICHT barbershop-adelsdorf.de heißt: Domain in
-   index.html, impressum.html, datenschutz.html, robots.txt, sitemap.xml ersetzen.
-7. Nach SSL-Einrichtung in .htaccess die HTTPS-Weiterleitung aktivieren.
+STAND
+- ERLEDIGT: Impressum (Einzelunternehmen, E-Mail, USt-IdNr.), Datenschutz
+  (STRATO als Hoster, Gmail-Hinweis), Team mit Fotos und KI-Kennzeichnung.
+- STRATO-AVV liegt beim Inhaber als PDF (nicht ins Repo legen).
+
+NOCH OFFEN
+1. Schriftliche Einwilligung von Ahmad und Mohammad zur Foto-Veröffentlichung ablegen.
+2. Online-Buchung (wenn eingerichtet): Link in assets/js/main.js bei BOOKING_URL
+   eintragen und in datenschutz.html den auskommentierten Abschnitt
+   „Online-Terminbuchung“ einblenden und ausfüllen.
+3. Nach SSL-Einrichtung bei STRATO in .htaccess die HTTPS-Weiterleitung aktivieren.
 
 RECHTLICHES
 - Keine Cookies, kein Tracking, keine externen Ressourcen -> kein Cookie-Banner nötig.
