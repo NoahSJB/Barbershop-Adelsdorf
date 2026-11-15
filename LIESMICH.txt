@@ -11,9 +11,9 @@ VOR DEM LIVESCHALTEN ERLEDIGEN (alles rot markiert auf der Seite)
 1. impressum.html + datenschutz.html: echte E-Mail-Adresse eintragen.
 2. impressum.html: USt-IdNr. eintragen – oder Abschnitt löschen.
 3. datenschutz.html: Hoster (STRATO oder IONOS) und Buchungsanbieter eintragen.
-4. Team: Fotos als assets/img/team/barber-1.jpg und barber-2.jpg ablegen
-   (Hochformat 4:5, ca. 1000 x 1250 px, JPG < 300 KB);
-   Name/Text des zweiten Barbers in index.html eintragen.
+4. Team: ERLEDIGT – Fotos (assets/img/team/barber-1.jpg = Ahmad,
+   barber-2.jpg = Mohammad, 800 x 1000 px) und Vornamen sind eingebaut.
+   Schriftliche Einwilligung beider Barber zur Foto-Veröffentlichung ablegen.
 5. Online-Buchung: Link in assets/js/main.js bei BOOKING_URL eintragen.
 6. Falls die Domain NICHT barbershop-adelsdorf.de heißt: Domain in
    index.html, impressum.html, datenschutz.html, robots.txt, sitemap.xml ersetzen.
