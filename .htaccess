@@ -13,14 +13,11 @@ Options -Indexes
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
-  # --- HTTPS und Adresse ohne "www" erzwingen ---------------------------------
-  # ERST aktivieren, wenn https://barbershop-adelsdorf.de im Browser mit Schloss
-  # funktioniert (SSL bei STRATO zugewiesen). Dann bei den 5 Zeilen mit "#>" das "#>" entfernen.
-  #> RewriteCond %{HTTPS} !=on
-  #> RewriteCond %{SERVER_PORT} !=443
-  #> RewriteRule ^ https://barbershop-adelsdorf.de%{REQUEST_URI} [R=301,L]
-  #> RewriteCond %{HTTP_HOST} ^www\. [NC]
-  #> RewriteRule ^ https://barbershop-adelsdorf.de%{REQUEST_URI} [R=301,L]
+  # --- Einheitliche Adresse: www -> ohne www (immer HTTPS) ---------------------
+  # Die Umleitung von http auf https erledigt STRATO bereits selbst
+  # (deshalb hier keine eigene HTTPS-Regel, das würde eine Endlosschleife riskieren).
+  RewriteCond %{HTTP_HOST} ^www\.barbershop-adelsdorf\.de$ [NC]
+  RewriteRule ^ https://barbershop-adelsdorf.de%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 # Zeichensatz
