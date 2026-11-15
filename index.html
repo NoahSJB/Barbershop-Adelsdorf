@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Barber Shop Adelsdorf – Herrenfriseur &amp; Bartpflege am Marktplatz</title>
-  <meta name="description" content="Barber Shop Adelsdorf am Marktplatz 1: Herrenhaarschnitte, Bartpflege und Nassrasur vom Friseurmeister. Seit 2019. Termin unter 09195 / 5074412.">
+  <title>Barbershop Adelsdorf | Friseur &amp; Herrenfriseur am Marktplatz</title>
+  <meta name="description" content="Ihr Friseur &amp; Barber in Adelsdorf: Herrenhaarschnitt ab 17 €, Fade, Bart &amp; Nassrasur vom Meisterbetrieb am Marktplatz 1. Termin: 09195 5074412">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0a0908">
   <meta name="format-detection" content="telephone=no">
+  <meta name="geo.region" content="DE-BY">
+  <meta name="geo.placename" content="Adelsdorf">
+  <meta name="geo.position" content="49.7148062;10.8944612">
+  <meta name="ICBM" content="49.7148062, 10.8944612">
   <link rel="canonical" href="https://barbershop-adelsdorf.de/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:site_name" content="Barber Shop Adelsdorf">
-  <meta property="og:title" content="Barber Shop Adelsdorf – Herrenfriseur &amp; Bartpflege">
-  <meta property="og:description" content="Haarschnitt, Bart und Nassrasur vom Friseurmeister – mitten am Marktplatz in Adelsdorf.">
+  <meta property="og:site_name" content="Barbershop Adelsdorf">
+  <meta property="og:title" content="Barbershop Adelsdorf – Friseur &amp; Herrenfriseur am Marktplatz">
+  <meta property="og:description" content="Haarschnitt, Fade, Bart und Nassrasur vom Friseurmeister – mitten am Marktplatz in Adelsdorf.">
+  <meta property="og:image:alt" content="Barbershop Adelsdorf – Friseur am Marktplatz">
   <meta property="og:url" content="https://barbershop-adelsdorf.de/">
   <meta property="og:image" content="https://barbershop-adelsdorf.de/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -34,29 +40,93 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HairSalon",
-    "name": "Barber Shop Adelsdorf",
-    "description": "Herrenfriseur und Barbershop – Haarschnitt, Bartpflege und Nassrasur vom Friseurmeister.",
-    "url": "https://barbershop-adelsdorf.de/",
-    "image": "https://barbershop-adelsdorf.de/assets/img/og-image.jpg",
-    "telephone": "+49 9195 5074412",
-    "priceRange": "3 € – 67 €",
-    "foundingDate": "2019",
-    "founder": { "@type": "Person", "name": "Ahmad Almahmoud", "jobTitle": "Friseurmeister" },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Marktplatz 1",
-      "postalCode": "91325",
-      "addressLocality": "Adelsdorf",
-      "addressRegion": "Bayern",
-      "addressCountry": "DE"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 49.7148062, "longitude": 10.8944612 },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
-    ],
-    "sameAs": ["https://www.instagram.com/barbershop.adelsdorf/"]
+    "@graph": [
+      {
+        "@type": "HairSalon",
+        "@id": "https://barbershop-adelsdorf.de/#salon",
+        "name": "Barbershop Adelsdorf",
+        "alternateName": ["Barber Shop Adelsdorf", "Barbershop Adelsdorf – Friseurmeister Ahmad Almahmoud"],
+        "description": "Barbershop und Herrenfriseur in Adelsdorf am Marktplatz: Herrenhaarschnitt, Fade, Kinderhaarschnitt, Bartpflege und klassische Nassrasur vom Friseurmeister.",
+        "url": "https://barbershop-adelsdorf.de/",
+        "logo": "https://barbershop-adelsdorf.de/android-chrome-512x512.png",
+        "image": [
+          "https://barbershop-adelsdorf.de/assets/img/og-image.jpg",
+          "https://barbershop-adelsdorf.de/assets/img/salon-fassade.jpg"
+        ],
+        "telephone": "+49 9195 5074412",
+        "email": "adelsdorfbarbershop@gmail.com",
+        "priceRange": "€",
+        "currenciesAccepted": "EUR",
+        "foundingDate": "2019",
+        "founder": { "@type": "Person", "name": "Ahmad Almahmoud", "jobTitle": "Friseurmeister" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Marktplatz 1",
+          "postalCode": "91325",
+          "addressLocality": "Adelsdorf",
+          "addressRegion": "Bayern",
+          "addressCountry": "DE"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 49.7148062, "longitude": 10.8944612 },
+        "hasMap": "https://maps.google.com/?cid=13310256550345395883",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "19:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Adelsdorf" },
+          { "@type": "City", "name": "Höchstadt an der Aisch" },
+          { "@type": "City", "name": "Hemhofen" },
+          { "@type": "City", "name": "Röttenbach" },
+          { "@type": "City", "name": "Heroldsbach" },
+          { "@type": "City", "name": "Hallerndorf" },
+          { "@type": "City", "name": "Erlangen" },
+          { "@type": "City", "name": "Forchheim" }
+        ],
+        "knowsAbout": ["Herrenhaarschnitt", "Fade", "Bartpflege", "Bart trimmen", "Nassrasur", "Kinderhaarschnitt", "Haare färben", "Dauerwelle"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Preisliste",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Herrenhaarschnitt – Schneiden & Stylen" }, "price": "21.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Waschen, Schneiden & Stylen" }, "price": "23.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maschinenschnitt" }, "price": "17.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kinderhaarschnitt bis 13 Jahre" }, "price": "17.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bart trimmen, konturieren & stylen" }, "price": "18.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nassrasur" }, "price": "18.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Glanz-Paket: Haarschnitt, Styling & Bart" }, "price": "33.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deluxe-Paket" }, "price": "46.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dauerwelle mit Haarschnitt" }, "price": "67.00", "priceCurrency": "EUR" },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haare färben" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": "35.00", "priceCurrency": "EUR" } }
+          ]
+        },
+        "sameAs": [
+          "https://www.instagram.com/barbershop.adelsdorf/",
+          "https://maps.google.com/?cid=13310256550345395883"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://barbershop-adelsdorf.de/#website",
+        "url": "https://barbershop-adelsdorf.de/",
+        "name": "Barbershop Adelsdorf",
+        "inLanguage": "de-DE",
+        "publisher": { "@id": "https://barbershop-adelsdorf.de/#salon" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://barbershop-adelsdorf.de/#faq",
+        "mainEntity": [
+          {"@type": "Question", "name": "Was kostet ein Herrenhaarschnitt beim Barbershop Adelsdorf?", "acceptedAnswer": {"@type": "Answer", "text": "Schneiden und Stylen kostet 21 €, mit Waschen 23 €. Ein Maschinenschnitt kostet 17 €, Kinder bis 13 Jahre zahlen ebenfalls 17 €. Bart trimmen und konturieren gibt es für 18 €, Haarschnitt mit Bart im Glanz-Paket für 33 €."}},
+          {"@type": "Question", "name": "Wie bekomme ich einen Termin beim Friseur in Adelsdorf?", "acceptedAnswer": {"@type": "Answer", "text": "Am einfachsten rufen Sie uns an: 09195 5074412. Wir sagen Ihnen direkt, wann bei Ahmad oder Mohammad ein Platz frei ist."}},
+          {"@type": "Question", "name": "Wann hat der Barbershop Adelsdorf geöffnet?", "acceptedAnswer": {"@type": "Answer", "text": "Montag bis Freitag von 10:00 bis 19:00 Uhr und Samstag von 9:00 bis 16:00 Uhr. Sonntag ist geschlossen. An Feiertagen können die Öffnungszeiten abweichen."}},
+          {"@type": "Question", "name": "Wo finde ich den Barbershop in Adelsdorf?", "acceptedAnswer": {"@type": "Answer", "text": "Direkt am Marktplatz 1 in 91325 Adelsdorf, mitten im Ort. Wir sind auch für Kunden aus Höchstadt an der Aisch, Hemhofen, Röttenbach, Heroldsbach, Hallerndorf, Erlangen und Forchheim schnell erreichbar."}},
+          {"@type": "Question", "name": "Bietet ihr Bartpflege und Nassrasur an?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Wir trimmen, konturieren und stylen Ihren Bart (18 €) und bieten die klassische Nassrasur mit dem Messer an (18 €). Im Deluxe-Paket für 46 € sind Haarschnitt, Bart, Augenbrauen mit Faden und Ohr- und Nasenhaar-Waxing enthalten."}},
+          {"@type": "Question", "name": "Schneidet ihr auch Fades und Kinderhaarschnitte?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Fades, Skin Fades, Konturen und klassische Herrenschnitte gehören zu unserem Alltag. Kinder bis 13 Jahre schneiden wir für 17 €."}},
+          {"@type": "Question", "name": "Ist der Barbershop Adelsdorf ein Meisterbetrieb?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Inhaber Ahmad ist Friseurmeister und führt den Barbershop am Marktplatz seit 2019."}}
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -121,6 +191,7 @@
           <li><a href="#ueber-uns">Über uns</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#bewertungen">Bewertungen</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
         <a class="btn nav__phone js-booking" href="#kontakt" hidden>
@@ -155,7 +226,7 @@
               <span class="lockup__est">2019</span>
               <svg class="lockup__flourish lockup__flourish--r" viewBox="0 0 180 55"><use href="#i-flourish"/></svg>
             </div>
-            <h1 class="lockup__name">Barber Shop <span class="sr-only">Adelsdorf – Herrenfriseur seit 2019</span></h1>
+            <h1 class="lockup__name">Barber Shop <span class="sr-only">Adelsdorf – Friseur &amp; Herrenfriseur seit 2019</span></h1>
             <div class="lockup__place" aria-hidden="true">
               <span class="lockup__line"><svg viewBox="0 0 200 20" preserveAspectRatio="none"><use href="#i-swash"/></svg></span>
               <span>Adelsdorf</span>
@@ -199,6 +270,7 @@
           <span class="heading__eyebrow">Leistungen</span>
           <h2 id="preise-title">Preisliste</h2>
           <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+          <p>Herrenhaarschnitt, Fade, Bart und Nassrasur – faire Preise beim Friseur in Adelsdorf.</p>
         </header>
 
         <div class="frame menu reveal">
@@ -281,7 +353,7 @@
             <span class="heading__eyebrow">Über uns</span>
             <h2 id="about-title">Handwerk am Marktplatz</h2>
           </header>
-          <p>Seit 2019 ist der Barber Shop Adelsdorf die Adresse für Herren, die Wert auf einen sauberen Schnitt und einen gepflegten Bart legen. Unser Laden liegt mitten im Ort – direkt am Marktplatz.</p>
+          <p>Seit 2019 ist der Barbershop Adelsdorf der Friseur für Herren, die Wert auf einen sauberen Schnitt und einen gepflegten Bart legen. Unser Laden liegt mitten im Ort – direkt am Marktplatz.</p>
           <p>Inhaber Ahmad Almahmoud ist Friseurmeister. Bei uns bekommen Sie keinen Schnitt von der Stange: Wir hören zu, beraten ehrlich und nehmen uns Zeit – vom klassischen Herrenschnitt über Konturen und Bartpflege bis zur traditionellen Nassrasur.</p>
           <p class="about__sign">Ahmad Almahmoud<span>Inhaber &amp; Friseurmeister</span></p>
         </div>
@@ -412,6 +484,48 @@
             </a>
           </div>
           <p class="reviews__note">Ihre Meinung ist uns wichtig – wir freuen uns über Ihre Bewertung auf Google. Bei den gezeigten Stimmen handelt es sich um Auszüge aus öffentlich auf Google abgegebenen Bewertungen (teilweise gekürzt, Namen abgekürzt). Wir haben nicht überprüft, ob die Verfasser unsere Leistungen tatsächlich in Anspruch genommen haben.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ / LOKALE INFOS (wichtig für Google) ============ -->
+    <section class="section section--faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <header class="heading reveal">
+          <span class="heading__eyebrow">Gut zu wissen</span>
+          <h2 id="faq-title">Ihr Friseur in Adelsdorf – häufige Fragen</h2>
+          <div class="divider" aria-hidden="true"><svg viewBox="0 0 180 18"><use href="#i-divider"/></svg></div>
+        </header>
+        <p class="faq__intro reveal">Der Barbershop Adelsdorf ist Ihr Herrenfriseur und Barber direkt am Marktplatz – für Herrenhaarschnitte, Fades, Kinderhaarschnitte, Bartpflege und klassische Nassrasur. Unsere Kunden kommen aus Adelsdorf und den Ortsteilen wie Aisch, Neuhaus und Weppersdorf, aber auch aus Höchstadt, Hemhofen, Röttenbach und Erlangen.</p>
+        <div class="faq reveal">
+          <details class="faq__item">
+            <summary>Was kostet ein Herrenhaarschnitt beim Barbershop Adelsdorf?</summary>
+            <p>Schneiden und Stylen kostet 21 €, mit Waschen 23 €. Ein Maschinenschnitt kostet 17 €, Kinder bis 13 Jahre zahlen ebenfalls 17 €. Bart trimmen und konturieren gibt es für 18 €, Haarschnitt mit Bart im Glanz-Paket für 33 €.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Wie bekomme ich einen Termin beim Friseur in Adelsdorf?</summary>
+            <p>Am einfachsten rufen Sie uns an: 09195 5074412. Wir sagen Ihnen direkt, wann bei Ahmad oder Mohammad ein Platz frei ist.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Wann hat der Barbershop Adelsdorf geöffnet?</summary>
+            <p>Montag bis Freitag von 10:00 bis 19:00 Uhr und Samstag von 9:00 bis 16:00 Uhr. Sonntag ist geschlossen. An Feiertagen können die Öffnungszeiten abweichen.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Wo finde ich den Barbershop in Adelsdorf?</summary>
+            <p>Direkt am Marktplatz 1 in 91325 Adelsdorf, mitten im Ort. Wir sind auch für Kunden aus Höchstadt an der Aisch, Hemhofen, Röttenbach, Heroldsbach, Hallerndorf, Erlangen und Forchheim schnell erreichbar.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Bietet ihr Bartpflege und Nassrasur an?</summary>
+            <p>Ja. Wir trimmen, konturieren und stylen Ihren Bart (18 €) und bieten die klassische Nassrasur mit dem Messer an (18 €). Im Deluxe-Paket für 46 € sind Haarschnitt, Bart, Augenbrauen mit Faden und Ohr- und Nasenhaar-Waxing enthalten.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Schneidet ihr auch Fades und Kinderhaarschnitte?</summary>
+            <p>Ja. Fades, Skin Fades, Konturen und klassische Herrenschnitte gehören zu unserem Alltag. Kinder bis 13 Jahre schneiden wir für 17 €.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Ist der Barbershop Adelsdorf ein Meisterbetrieb?</summary>
+            <p>Ja. Inhaber Ahmad ist Friseurmeister und führt den Barbershop am Marktplatz seit 2019.</p>
+          </details>
         </div>
       </div>
     </section>

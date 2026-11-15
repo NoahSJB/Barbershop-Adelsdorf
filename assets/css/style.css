@@ -1296,3 +1296,46 @@ button { font: inherit; color: inherit; }
   body { background: #fff; color: #000; padding: 0; }
   .frame { box-shadow: none; background: #fff; }
 }
+
+/* ===== FAQ / Häufige Fragen ===== */
+.faq__intro {
+  max-width: 46em;
+  margin: 0 auto clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  color: var(--muted);
+}
+.faq {
+  max-width: 820px;
+  margin-inline: auto;
+  border-top: 1px solid var(--line);
+}
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem .25rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.4vw, 1.1rem);
+  color: var(--cream);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  flex: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--gold);
+  transition: transform .25s var(--ease);
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item summary:hover,
+.faq__item summary:focus-visible { color: var(--gold-hi); }
+.faq__item p {
+  padding: 0 .25rem 1.3rem;
+  color: var(--muted);
+  max-width: 62em;
+}

@@ -6,20 +6,22 @@ ErrorDocument 404 /404.html
 # Verzeichnisauflistung verhindern
 Options -Indexes
 
-# HTTPS erzwingen – erst aktivieren, wenn das SSL-Zertifikat bei Strato eingerichtet ist
-# (dazu die vier Zeilen unten entkommentieren)
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTPS} off
-#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# </IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# Einheitliche Adresse ohne „www“ (optional, nach dem SSL-Setup entkommentieren)
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-#   RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
-# </IfModule>
+  # /index.html auf die Startseite umleiten (verhindert doppelte Inhalte bei Google)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # --- HTTPS und Adresse ohne "www" erzwingen ---------------------------------
+  # ERST aktivieren, wenn https://barbershop-adelsdorf.de im Browser mit Schloss
+  # funktioniert (SSL bei STRATO zugewiesen). Dann bei den 5 Zeilen mit "#>" das "#>" entfernen.
+  #> RewriteCond %{HTTPS} !=on
+  #> RewriteCond %{SERVER_PORT} !=443
+  #> RewriteRule ^ https://barbershop-adelsdorf.de%{REQUEST_URI} [R=301,L]
+  #> RewriteCond %{HTTP_HOST} ^www\. [NC]
+  #> RewriteRule ^ https://barbershop-adelsdorf.de%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 # Zeichensatz
 AddDefaultCharset UTF-8
