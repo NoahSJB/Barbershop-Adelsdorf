@@ -493,6 +493,44 @@ button { font: inherit; color: inherit; }
 .status.is-open .status__dot { background: #5fbf6e; box-shadow: 0 0 0 4px rgba(95, 191, 110, .18); }
 .status strong { color: var(--cream); font-weight: 600; }
 
+/* Dezente Hinweise auf Instagram und Google-Bewertungen, direkt im Kopfbereich sichtbar */
+/* Öffnungsstatus und die beiden Links teilen sich eine Zeile, wenn Platz ist. So bleibt alles im ersten Bildschirm. */
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem 1.8rem;
+  margin-top: 1.4rem;
+}
+.hero__meta .status { margin-top: 0; }
+.hero__social {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+.hero__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  min-height: 44px;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cream);
+  transition: color .2s var(--ease);
+}
+.hero__social span { border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .2s var(--ease); }
+.hero__social svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
+.hero__social a:hover { color: var(--gold-hi); }
+.hero__social a:hover span { border-color: var(--gold-hi); }
+
 .hero__scroll {
   position: absolute;
   left: 50%;
