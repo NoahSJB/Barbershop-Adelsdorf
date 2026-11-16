@@ -10,7 +10,8 @@ GitHub ist die Hauptkopie: erst hier ändern + committen, dann zu STRATO hochlad
 
 STAND
 - ERLEDIGT: Impressum (Einzelunternehmen, E-Mail, USt-IdNr.), Datenschutz
-  (STRATO als Hoster, Gmail-Hinweis), Team mit Fotos und KI-Kennzeichnung.
+  (STRATO als Hoster, Postfach info@ bei STRATO, eigenes Buchungssystem bei Hetzner),
+  Team mit Fotos und KI-Kennzeichnung.
 - STRATO-AVV liegt beim Inhaber als PDF (nicht ins Repo legen).
 
 NOCH OFFEN
