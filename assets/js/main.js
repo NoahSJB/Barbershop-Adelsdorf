@@ -162,6 +162,12 @@
     status.hidden = false;
   }
 
+  /* ---------- Bilder, die fehlen dürfen: bei einem Ladefehler entfernen ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll("img[data-optional]"), function (img) {
+    if (img.complete && img.naturalWidth === 0 && img.currentSrc) { img.remove(); return; }
+    img.addEventListener("error", function () { img.remove(); });
+  });
+
   /* ---------- Online-Buchung einblenden ---------- */
   if (/^https:\/\//.test(BOOKING_URL)) {
     document.querySelectorAll(".js-booking").forEach(function (el) {
