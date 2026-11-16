@@ -5,12 +5,11 @@
 
   /* ======================================================================
      ONLINE-TERMINBUCHUNG
-     Hier den Link zum Buchungssystem eintragen, z. B.
-     var BOOKING_URL = "https://www.anbieter.de/barbershop-adelsdorf";
-     Solange der Wert leer ist, werden alle „Online buchen“-Buttons
-     automatisch ausgeblendet und die Telefon-Buttons angezeigt.
+     Adresse des eigenen Buchungssystems. Ist der Wert leer (""), werden alle
+     „Online buchen“-Buttons ausgeblendet und die Telefon-Buttons angezeigt.
+     So lässt sich die Online-Buchung auf der Website jederzeit abschalten.
      ====================================================================== */
-  var BOOKING_URL = "";
+  var BOOKING_URL = "https://termin.barbershop-adelsdorf.de/";
 
   var doc = document.documentElement;
   doc.classList.add("js");
@@ -175,7 +174,7 @@
         el.href = BOOKING_URL;
         el.target = "_blank";
         el.rel = "noopener noreferrer";
-        el.setAttribute("aria-label", (el.textContent.trim() || "Online buchen") + " (öffnet externe Seite in neuem Tab)");
+        el.setAttribute("aria-label", (el.textContent.trim() || "Online buchen") + " (öffnet die Buchungsseite in neuem Tab)");
       }
       el.hidden = false;
     });

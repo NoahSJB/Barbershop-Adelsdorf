@@ -13,6 +13,9 @@ Options -Indexes
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
+  # Kurzadresse für die Online-Buchung: barbershop-adelsdorf.de/terminbuchung
+  RewriteRule ^terminbuchung/?$ https://termin.barbershop-adelsdorf.de/ [R=302,L]
+
   # --- Einheitliche Adresse: www -> ohne www (immer HTTPS) ---------------------
   # Die Umleitung von http auf https erledigt STRATO bereits selbst
   # (deshalb hier keine eigene HTTPS-Regel, das würde eine Endlosschleife riskieren).
