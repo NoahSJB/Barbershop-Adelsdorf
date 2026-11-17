@@ -1006,6 +1006,8 @@ button { font: inherit; color: inherit; }
   font-weight: 500;
   vertical-align: baseline;
 }
+/* Jede Angabe bleibt in einer Zeile: „Montag – Freitag“ links, die Uhrzeit rechts. */
+.hours th, .hours td { white-space: nowrap; }
 .hours td { text-align: right; font-variant-numeric: tabular-nums; color: #d6cfc1; }
 .hours tr:last-child th,
 .hours tr:last-child td { border-bottom: 0; }
@@ -1023,6 +1025,10 @@ button { font: inherit; color: inherit; }
   vertical-align: .15em;
 }
 .hours .closed { color: var(--muted); }
+/* Wo die Karte schmal ist (Handy, Tablet), rückt die Marke „Heute“ unter den Wochentag. */
+@media (max-width: 1080px) {
+  .hours tr.is-today th::after { display: block; width: max-content; margin: .35rem 0 0; }
+}
 .hours-note { margin-top: 1.25rem; font-size: .88rem; color: var(--muted); }
 
 .contact__side { display: grid; gap: 1.5rem; }
@@ -1289,7 +1295,8 @@ button { font: inherit; color: inherit; }
   .review:last-child:nth-child(odd) { grid-column: auto; }
   .reviews__actions { flex-direction: column; align-items: stretch; width: 100%; }
 
-  .hours th, .hours td { padding-inline: .15rem; }
+  /* Auf schmalen Bildschirmen passt sich die Schrift an, damit Wochentage und Uhrzeit nebeneinander bleiben. */
+  .hours th, .hours td { padding-inline: .15rem; font-size: clamp(.84rem, 4.1vw, 1.0625rem); }
   .contact__actions .btn { flex: 1 1 100%; }
 
   .quickbar {
@@ -1315,7 +1322,6 @@ button { font: inherit; color: inherit; }
   .lockup__name { font-size: 2.35rem; }
   .lockup__place span:not(.lockup__line) { letter-spacing: .18em; margin-right: -.18em; }
   .price__dots { min-width: .75rem; }
-  .hours tr.is-today th::after { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
