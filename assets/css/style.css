@@ -516,7 +516,7 @@ button { font: inherit; color: inherit; }
 .hero__social a {
   display: inline-flex;
   align-items: center;
-  gap: .55rem;
+  gap: .6rem;
   min-height: 44px;
   font-size: .76rem;
   font-weight: 600;
@@ -527,7 +527,7 @@ button { font: inherit; color: inherit; }
   transition: color .2s var(--ease);
 }
 .hero__social span { border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .2s var(--ease); }
-.hero__social svg { width: 18px; height: 18px; flex: none; color: var(--gold); }
+.hero__social svg { width: 28px; height: 28px; flex: none; }   /* farbige Original-Icons von Instagram und Google Maps */
 .hero__social a:hover { color: var(--gold-hi); }
 .hero__social a:hover span { border-color: var(--gold-hi); }
 
