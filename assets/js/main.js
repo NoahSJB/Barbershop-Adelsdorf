@@ -108,7 +108,7 @@
   // 0 = Sonntag … 6 = Samstag; Zeiten in Minuten (Europe/Berlin)
   var HOURS = {
     1: [600, 1140], 2: [600, 1140], 3: [600, 1140], 4: [600, 1140], 5: [600, 1140],
-    6: [540, 960],
+    6: [540, 1020],
     0: null
   };
   var DAYS = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
